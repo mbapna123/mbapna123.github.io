@@ -26,12 +26,12 @@ else{
   adjustedratio=x*(1.32-.32*x)
 }
 adjustment=Math.pow(adjustedratio,.5)
-alert(height)
-alert(n)
-alert(x)
-alert(adjustedratio)
-alert(adjustment)
-alert(adjustedratio);
+// alert(height)
+// alert(n)
+// alert(x)
+// alert(adjustedratio)
+// alert(adjustment)
+// alert(adjustedratio);
 $("#pokemonDiv").css("height", 400/adjustment);
 $("#pokemonDiv").css("width", 400/adjustment);
 $("#human").css("height",260*adjustment);
@@ -51,10 +51,10 @@ else{
   adjustedratio=x*(1.32-.32*x)
 }
 adjustment=Math.pow(adjustedratio,.5)
-alert(height)
-alert(n)
-alert(adjustedratio)
-alert(adjustment)
+// alert(height)
+// alert(n)
+// alert(adjustedratio)
+// alert(adjustment)
 // alert(adjustedratio);
 $("#pokemonDiv").css("height", 400/adjustment);
 $("#pokemonDiv").css("width", 400/adjustment);
