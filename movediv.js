@@ -1,7 +1,7 @@
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
-meterfinal="1.98"
+meterfinal=1.98
 imagechosen="peterdink.png"
 pokemonchosen="pikachu"
   $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
@@ -41,6 +41,8 @@ $(".KButton").removeClass()
   $(".metersfile").click(function(){
     t=0;
       $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+       $(".meterheight").text("meters")
+  meterfinal=$(".heightone").val();
   $(".heightone").keyup(function(){
   var valuee=$(".heightone").val().length
   meterfinal=$(".heightone").val()
@@ -57,9 +59,15 @@ $(".KButton").removeClass()
    $(".meterheight").text("meters")
   })})
 
+$(".heightone").keyup(function(){
+  meterfinal=$(".heightone").val()
+})
+
 $(".inchesfile").click(function(){
+   $(".meterheight").text("inches")
   t=1;
     $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+    meterfinal=$(".heightone").val()*.0254;
 $(".heightone").keyup(function(){
 var valuee=$(".heightone").val().length
 inchesheight=$(".heightone").val();
@@ -71,8 +79,6 @@ meterfinal=inchesheight*.0254;
     $(".heightclass").css("background","linear-gradient(white,gray)")
   }
 })
-
-
   $(".heightone").hover(function(){
    $(".meterheight").text("")},
 function(){
@@ -111,13 +117,18 @@ $.getJSON(Uone,function(dataone){
 $.getJSON(Utwo,function(datatwo){
    imagepokemon=datatwo.sprites.front_default;
    $(".pokee").attr("src",imagepokemon)
-   $(".human").attr("src",)
+    imagechosen2=$(".imageinput").val()
+   $(".human").attr("src",imagechosen2)
    x=meterfinal/(heightpokemon/10);
    if (x>1){
      adjustedratio=x*(-.01666667*x+1.01667)
    }
    else{
      adjustedratio=x*(1.32-.32*x)
+   }
+   if (adjustedratio>50){
+     alert("Ratio is " + x + " which is too much for this program to handle.")
+     return
    }
    adjustment=Math.pow(adjustedratio,.5)
    $(".pokee").css("height",160/adjustment)
