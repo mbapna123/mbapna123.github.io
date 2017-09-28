@@ -107,11 +107,16 @@ $(".submitimage").hover(function(){
        }
        else{
         $(".imagefile").css("background","linear-gradient(white,gray)")}})
+
+$( document ).ajaxError(function() {
+  alert("Database cannot be accessed. Internet must be working! Enable the CORS Chrome Extension and 'load unsafe scripts'")
+})
+
 $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
   Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal;
   Utwo="http://pokeapi.co/api/v2/pokemon/" + pokemonchosenfinal;
-$.getJSON(Uone,function(dataone){
+  $.getJSON(Uone,function(dataone){
    heightpokemon=dataone.height;
 })
 $.getJSON(Utwo,function(datatwo){
@@ -135,8 +140,7 @@ $.getJSON(Utwo,function(datatwo){
    $(".pokee").css("width", 160/adjustment)
    $(".human").css("height",150*adjustment)
    $(".human").css("width",80*adjustment)
-})
-})
+})})
 
 $(".whatiscors").hover(function(){
   $(".whatiscors").css("background","linear-gradient(white,grey)")},
