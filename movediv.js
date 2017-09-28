@@ -93,7 +93,6 @@ function(){
 $(".submitimage").hover(function(){
    $(".submitimage").css("background","linear-gradient(#80EACA,#0AC88F)")},function(){
      $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")})
-
      $(".imageinput").keyup(function(){
        imagechosen=$(".imageinput").val()
        var poke=$(".imageinput").val()
@@ -102,7 +101,6 @@ $(".submitimage").hover(function(){
        }
        else{
         $(".imagefile").css("background","linear-gradient(white,gray)")}})
-
 $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
   Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal;
@@ -126,7 +124,6 @@ $.getJSON(Utwo,function(datatwo){
    $(".pokee").css("width", 160/adjustment)
    $(".human").css("height",150*adjustment)
    $(".human").css("width",80*adjustment)
-
 })
 })
 
