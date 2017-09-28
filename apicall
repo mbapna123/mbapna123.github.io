@@ -1,7 +1,0 @@
-Pokemon's photos get bigger with increasing size, have to compensate for that:
-
-if (poke/human)>0;
-and poke 10 times greater than human, have if be technically 10*.85 times bigger
-since the photo will already be bigger. So if 1 have scaling factor be 1, 10 have scaling
-factor be .85. Thus x=x*(-.01666667x+1.01667).
-Same thing on opposite side, 

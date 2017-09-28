@@ -1,0 +1,394 @@
+/**{
+  outline: black 1px solid;
+}*/
+.window{
+  height: 700px;
+  width: 1200px;
+  position: relative;
+  left: 200px;
+}
+
+.leftpic{
+  position: absolute;
+  right: 1200px;
+  height: 600px;
+  width: 1000px;
+  top: 50px;
+  background-image: url("https://i.imgur.com/yCKv80D.jpg");
+  background-size: 100% 100%;
+  opacity: 0;
+}
+
+.human{
+  position: absolute;
+  bottom: 20px;
+  right: 610px;
+  width: 80px;
+  height: 150px;
+}
+
+.pokee{
+position: absolute;
+  left: 610px;
+  bottom: 20px;
+  width: 160px;
+  height: 160px;
+}
+
+.pokemenubar{
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  height: 250px;
+  width: 200px;
+  text-align: center;
+  font-size: 20px;
+  font-family: Comic Sans MS;
+}
+
+.pokewindow{
+  position: absolute;
+  right: 10px;
+  height: 709px;
+  width: 1210px;
+  top: 9px;
+  background-size: 100% 100%;
+  background-color: green;
+  background-image: url("https://wallpapercave.com/wp/jgZcrie.jpg")
+}
+
+.imageinput{
+position: absolute;
+top: 90px;
+left: 266px;
+height: 30px;
+width: 200px;
+text-align: center;
+}
+
+.heightone{
+position: absolute;
+top: 119px;
+left: 266px;
+height: 30px;
+width: 200px;
+text-align: center;
+opacity: 1;
+}
+
+
+.heighttwo{
+  position: absolute;
+  top: 119px;
+  left: 266px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  opacity: 1;
+}
+
+.meterheight{
+  position: absolute;
+  top: 124px;
+  left: 380px;
+  height: 30px;
+  width: 60px;
+  text-align: center;
+  color: gray;
+  opacity: .7;
+}
+/*
+.inches{
+  position: absolute;
+  top: 119px;
+  left: 266px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  opacity: 0;
+}
+
+.feetinches{
+  position: absolute;
+  top: 119px;
+  left: 266px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  opacity: 0;
+}*/
+
+.pokemoninput{
+  position: absolute;
+  top: 149px;
+  left: 266px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+}
+
+.submit{
+  position: absolute;
+  top: 179px;
+  left: 266px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+}
+
+.leftpicpara{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 15px;
+  top: 50px;
+  text-align: center;
+  font-family: Comic Sans MS;
+  border: purple 1px solid;
+}
+h2{
+  line-height: 0px;
+}
+b{
+  font-size: 24px;
+  line-height: 0px;
+}
+h5{
+  line-height: 0px;
+}
+h6{
+  line-height: 0px;
+}
+li{
+  font-size: 16px;
+}
+.title{
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  height: 50px;
+  width: 400px;
+  text-align: center;
+  font-size: 30px;
+  font-family: Comic Sans MS;
+  color: black;
+}
+
+.passionateheading{
+  position: absolute;
+  top:130px;
+  left: 30px;
+  height:60px;
+  width: 127px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 24px;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+
+.imagefile{
+  background: linear-gradient(#16B9D4,#9AE3F0)
+}
+.heightclass{
+}
+
+.pokemonimage{
+    background: linear-gradient(#16B9D4,#9AE3F0)
+}
+.submitimage{
+  background: linear-gradient(#16B9D4,#9AE3F0)
+}
+
+.whatiscors{
+  position: absolute;
+  height: 65px;
+  width: 150px;
+  bottom: 120px;
+  left: 20px;
+  font-size: 24px;
+  font-family: Comic Sans MS;
+  text-align: center;
+}
+
+.corsans{
+  position: absolute;
+  top: 210px;
+  right: 30px;
+  height: 275px;
+  width: 300px;
+  font-size: 14px;
+  color: red;
+  opacity: 0;
+}
+.quicklearnerhead{
+  position: absolute;
+  top: 220px;
+  left: 30px;
+  height: 60px;
+  width: 127px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 24px;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+
+.educationhead{
+  position: absolute;
+  top: 310px;
+  left: 30px;
+  height: 60px;
+  width: 127px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 24px;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+
+.educationh{
+  position: absolute;
+  top: 400px;
+  left: 30px;
+  height: 60px;
+  width: 127px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 24px;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+
+.college{
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  height: 30px;
+  width: 300px
+}
+
+
+/*
+.passionate{
+  position: absolute;
+  bottom: 387px;
+  right: 40px;
+  height: 100px;
+  width: 300px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.quicklearner{
+  position: absolute;
+  top: 230px;
+  right: 40px;
+  height: 100px;
+  width: 300px;
+  text-align: center;
+}
+
+.education{
+  position: absolute;
+  top: 485px;
+  right: 40px;
+  height: 100px;
+  width: 300px;
+  text-align: center;
+}*/
+
+.bodypost{
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  width: 320px;
+  height: 380px;
+}
+.rightpicpara{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 15px;
+  top: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-family: Comic Sans MS;
+}
+
+.one{
+  position: absolute;
+  height: 600px;
+  width: 1000px;
+  top: 50px;
+  right: 1200px;
+}
+
+
+.rightpic{
+  position: absolute;
+  right: 100px;
+  height: 600px;
+  width: 1000px;
+  top: 50px;
+  background-image: url("https://wallinsider.com/wp-content/uploads/2017/08/Blue-Pok%C3%A9mon-Wallpapers-11.png");
+  background-size: 100% 100%;
+}
+
+
+.imagearrow{
+  position: absolute;
+  height: 70px;
+  width: 180px;
+  bottom: 270px;
+  right: 200px;
+  background-color: #ADD8E6;
+  /*font-size: 180px;
+  font-weight: bold;
+  font-family: Comic Sans MS;*/
+}
+
+.imagearrowbox{
+  position: absolute;
+  width: 180px;
+  bottom: 200px;
+  right: 200px;
+  height: 80px;
+  text-align: center;
+  font-size: 150px;
+  font-family: Comic Sans MS;
+}
+
+.image2{
+  height: 100px;
+  width: 160px;
+  position: absolute;
+  bottom: 380px;
+  right: 20px;
+  text-align: center;
+}
+
+body, html{
+  height: 100%;
+  margin: 0px;
+  background-image: url("https://hdwallsource.com/img/2014/6/cloud-wallpaper-21880-22433-hd-wallpapers.jpg");
+}
+.image2border{
+  height: 100px;
+  width: 80px;
+  position: absolute;
+  bottom:400px;
+  right: 62px;
+  text-align: center;
+  font-size: 120px;
+  font-family: Comic Sans MS;
+}
+
+.KButton{
+  height: 100px;
+  width: 90px;
+  position: absolute;
+  right: 45px;
+  top: 20px;
+  border: green 2px solid;
+}

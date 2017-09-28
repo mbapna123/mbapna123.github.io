@@ -1,25 +1,100 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <title> Mayank's PokeAPI Project </title>
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
-      <script type="text/javascript" src= "apicalljs.js"> </script>
-      <link rel="stylesheet" type="text/css" href="apicallcss.css">
-    </head>
-    <body>
-      <div class="window">
-        <img id="pokemonDiv" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">
-        <img id="human" src="peterdink.png">
-        <div class="displayBox">
-        </div>
-        <div class="displayHeight">
-            <button class="displayHeightBox"> Meters </button>
-              <input type="text" value="1.35" id="displayHeightBox2">
+<html>
+<head>
+  <script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="movediv.js"></script>
+  <link rel="stylesheet" type="text/css" href="movediv.css">
+  <link type="text/css" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+</head>
+  <body>
+<div class="window">
+
+  <div class="pokewindow">
+    <img class="pokee" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/289.png">
+    <img class="human" src="kevindurant.jpg">
+    <input type="text" name="image"class="imageinput" value="kevindurant1.jpg"> </input>
+    <!-- <input class="meters" name="meters" value="1.57">
+    <input class="inches" name="inches" value="61.8">
+<input class="feetinches" name="feet" value="5,1"> -->
+<!-- <div class="heighttwo" name="height2"> </div> -->
+    <input type="text" class="heightone"  value ="1.98"> <span class="meterheight"> </span>
+    <input type="text" class="pokemoninput" value="slaking" name="pokemon">
+    <!-- <input class="submit" name="submit" > -->
+    <div class="pokemenubar">
+      <!-- <p> Hello </p> -->
+      <div class="pokemenu">
+ <ul id = "menu-1">
+     <li class="imagefile"><a href = "#">Image File </a> </li>
+<li class="heightclass"><a href = "#">Height </a>
+  <ul>
+    <li class="metersfile"><a href = "#">Meters</a> </li>
+    <li class="inchesfile"><a href = "#">Inches</a></li>
+    <!-- <li class="feetfile"><a href = "#">FeetandInches</a></li> -->
+  </ul>
+</li>
+     <li class="pokemonimage"> <a href="#"> Pokemon </a> </li>
+       <li class="submitimage"> <a href="#"> Submit! </a> </li>
+</ul>
+        <!-- <ul id=#makemenu> Menu
+          <li> Image File
+            <ul>
+              <li> <input type="text" name="ImageFile" value="samplephoto.jpg"></li>
+            </ul>
+          </li>
+          <li> Height
+            <ul>
+              <li> Meters
+                <ul> <li> <input type="text" name="meters" value="1.57"> </li> </ul>
+              </li>
+            </ul> -->
+                <!--
+              <li> Inches </li>
+              <li> Feet </li> -->
+        <!-- </li>
+          <li> Pokemon </li>
+        </ul> -->
       </div>
-        <div class="displayPokemon">
-            <input id="displayPokemonBox2" type="text" value="72">
-          <button class="displayPokemonBox"> Pokemon </button>
-        </div>
-      </div>
-    </body>
+    </div>
+  </div>
+
+<div class="leftpic">
+    <p class="image2border">
+      K.
+   </p>
+  <div class="Kbutton">
+   </div>
+   <div class="leftpicpara">
+     <p class="paraone">For this project, a user enters their height as well as the name or the ID number of a particular pokemon. The app will retrieve a JSON file from the<a href="https://pokeapi.co/"> PokeAPI</a>  and parse the JSON file, finding the height and an image file of the Pokemon. Based off of the proportion of the user and the pokemon’s height, a scale illustration will be shown of the user and the pokemon. To use this project, one might have to enable this Google Chrome Extension <a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en">(CORS) </a> as well as potentially load unsafe scripts.</p>
+    <button class="whatiscors">
+      What is CORS?
+    </button>
+    <p class="corsans">
+      CORS is Cross-Origin Resource sharing. Essentially, for security reasons, many servers only allow XMLHTTPREQUESTS from the same domain. For example, only in a website that has the domain of www.mayankGOAT.com can access the JSON file www.mayankGOAT.com/mayankBOSS.json. But cross origin resource sharing would allow you access this JSON file from any domain.
+    </p>
+   </div>
+</div>
+
+<div class="rightpic" src="https://i.imgur.com/rEWUdzp.jpg">
+<button class="imagearrow"> </button>
+ <!-- <p class="imagearrow">&#x2192; </p> -->
+<p class="imagearrowbox">&#x2192; </p>
+<div class="rightpicpara">
+  <p class="bodypost"> <br> <br> <br> <br> <br> <br> Click on any of the buttons on the left to find out more about me! Then click the arrow to move on
+  to the next page! </p>
+  <button class="passionateheading"> Passionate</button>
+  <button class="quicklearnerhead"> Motivated</button>
+  <button class="educationhead"> Quick Learner</button>
+  <button class="educationh"> Education</button>
+  <p class="passionate"> </p>
+  <p class="quicklearner"> </p>
+  <p class="education"> </p>
+  <p class="title"> Mayank Bapna</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+  </body>
 </html>
