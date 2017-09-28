@@ -214,12 +214,11 @@ li{
 
 .corsans{
   position: absolute;
-  top: 210px;
+  top: 230px;
   right: 30px;
   height: 275px;
   width: 300px;
   font-size: 14px;
-  color: red;
   opacity: 0;
 }
 .quicklearnerhead{
@@ -305,6 +304,7 @@ li{
   right: 5px;
   width: 320px;
   height: 380px;
+  border: 2px purple solid;
 }
 .rightpicpara{
   position: absolute;
@@ -379,17 +379,17 @@ body, html{
   width: 80px;
   position: absolute;
   bottom:400px;
-  right: 62px;
+  left: 820px;
   text-align: center;
-  font-size: 120px;
+  font-size: 180px;
   font-family: Comic Sans MS;
 }
 
 .KButton{
-  height: 100px;
-  width: 90px;
+  height: 67px;
+  width: 171px;
   position: absolute;
-  right: 45px;
-  top: 20px;
+  bottom: 490px;
+  left: 822px;
   border: green 2px solid;
 }
