@@ -107,16 +107,13 @@ $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
   Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal;
   Utwo="http://pokeapi.co/api/v2/pokemon/" + pokemonchosenfinal;
-  alert(Uone)
 $.getJSON(Uone,function(dataone){
    heightpokemon=dataone.height;
 })
 $.getJSON(Utwo,function(datatwo){
    imagepokemon=datatwo.sprites.front_default;
    $(".pokee").attr("src",imagepokemon)
-   alert(heightpokemon)
-   alert(imagepokemon)
-   alert(meterfinal)
+   $(".human").attr("src",)
    x=meterfinal/(heightpokemon/10);
    if (x>1){
      adjustedratio=x*(-.01666667*x+1.01667)
@@ -125,7 +122,6 @@ $.getJSON(Utwo,function(datatwo){
      adjustedratio=x*(1.32-.32*x)
    }
    adjustment=Math.pow(adjustedratio,.5)
-   alert(adjustment)
    $(".pokee").css("height",160/adjustment)
    $(".pokee").css("width", 160/adjustment)
    $(".human").css("height",150*adjustment)
