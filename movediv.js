@@ -14,7 +14,8 @@ pokemonchosen="pikachu"
   $(".imagearrowbox").click(function(){
     $(".rightpic").animate({"left":"+=1100px", opacity: 0},4000)
     $(".leftpic").animate({"left":"+=1100px", opacity: 1},4000,function(){
-        $(".rightpic").removeClass()})})
+      $(".info").css("bottom","660")
+    })})
 
    $(function(){$("#menu-1").menu()})
 
