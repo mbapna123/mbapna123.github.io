@@ -124,6 +124,7 @@ $.getJSON(Utwo,function(datatwo){
    $(".pokee").attr("src",imagepokemon)
     imagechosen2=$(".imageinput").val()
    $(".human").attr("src",imagechosen2)
+   alert(meterfinal)
    x=meterfinal/(heightpokemon/10);
    if (x>1){
      adjustedratio=x*(-.01666667*x+1.01667)
@@ -131,15 +132,33 @@ $.getJSON(Utwo,function(datatwo){
    else{
      adjustedratio=x*(1.32-.32*x)
    }
-   if (adjustedratio>50){
+   alert(adjustedratio)
+   if (adjustedratio>50 ){
      alert("Ratio is " + x + " which is too much for this program to handle.")
      return
    }
+if (adjustedratio<.06 ){
+     alert("Ratio is " + x + " which is too much for this program to handle.")
+     return}
    adjustment=Math.pow(adjustedratio,.5)
-   $(".pokee").css("height",160/adjustment)
-   $(".pokee").css("width", 160/adjustment)
-   $(".human").css("height",150*adjustment)
-   $(".human").css("width",80*adjustment)
+   if (adjustment>2.5){
+     $(".pokee").css("height",240/(adjustment*2))
+     $(".pokee").css("width", 240/(adjustment*2))
+     $(".human").css("height",225*(adjustment/2))
+     $(".human").css("width",120*(adjustment/2))
+   }
+   else if (adjustment<.35) {
+     $(".pokee").css("height",240/(adjustment/2))
+     $(".pokee").css("width", 240/(adjustment/2))
+     $(".human").css("height",225*(adjustment*2))
+     $(".human").css("width",120*(adjustment*2))
+   }
+   else{
+     $(".pokee").css("height",240/adjustment)
+     $(".pokee").css("width", 240/adjustment)
+     $(".human").css("height",225*adjustment)
+     $(".human").css("width",120*adjustment)
+   }
 })})
 
 $(".whatiscors").hover(function(){

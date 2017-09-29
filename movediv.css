@@ -23,16 +23,16 @@
   position: absolute;
   bottom: 20px;
   right: 610px;
-  width: 80px;
-  height: 150px;
+  width: 160px;
+  height: 300px;
 }
 
 .pokee{
 position: absolute;
   left: 610px;
   bottom: 20px;
-  width: 160px;
-  height: 160px;
+  width: 320px;
+  height: 320px;
 }
 
 .pokemenubar{
@@ -96,6 +96,18 @@ opacity: 1;
   text-align: center;
   color: gray;
   opacity: .7;
+}
+
+.explainpara{
+  position: absolute;
+  top: 20px;
+  left: 266px;
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  font-size: 14;
+  color: purple;
+
 }
 /*
 .inches{
