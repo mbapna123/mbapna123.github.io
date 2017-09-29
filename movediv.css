@@ -1,6 +1,6 @@
-*{
+/**{
   outline: black 1px solid;
-}
+}*/
 .window{
   height: 700px;
   width: 1200px;
@@ -171,8 +171,10 @@ li{
   position: absolute;
   height: 30px;
   font-size: 16px;
-  width: 200px;
-  bottom: 10px;
+  width: 300px;
+  bottom: 680px;
+  left: 660px;
+  color: purple;
 }
 
 .passionateheading{

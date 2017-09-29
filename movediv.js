@@ -13,8 +13,8 @@ pokemonchosen="pikachu"
     }})
   $(".imagearrowbox").click(function(){
     $(".rightpic").animate({"left":"+=1100px", opacity: 0},4000)
-    $(".leftpic").animate({"left":"+=1100px", opacity: 1},4000)
-  })
+    $(".leftpic").animate({"left":"+=1100px", opacity: 1},4000,function(){
+        $(".rightpic").removeClass()})})
 
    $(function(){$("#menu-1").menu()})
 
