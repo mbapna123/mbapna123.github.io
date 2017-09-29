@@ -177,6 +177,10 @@ li{
   color: purple;
 }
 
+.smallfont{
+  font-size: 12px;
+}
+
 .passionateheading{
   position: absolute;
   top:130px;
