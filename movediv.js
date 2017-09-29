@@ -111,7 +111,7 @@ $(".submitimage").hover(function(){
         $(".imagefile").css("background","linear-gradient(white,gray)")}})
 
 $( document ).ajaxError(function() {
-  alert("Database cannot be accessed. Internet must be working! Enable the CORS Chrome Extension and 'load unsafe scripts'")
+  alert("Database cannot be accessed. Internet must be working! Enable the CORS Chrome Extension and allow your browser to load from unauthenticated sources.")
 })
 
 $(".submitimage").click(function(){
