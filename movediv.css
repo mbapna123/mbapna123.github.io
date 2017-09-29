@@ -107,9 +107,27 @@ opacity: 1;
   text-align: center;
   font-size: 14;
   color: purple;
-
 }
 
+.display{
+  position: absolute;
+  top: 20px;
+  left: 132px;
+  height: 40px;
+  width: 268px;
+  text-align: center;
+  font-size: 18;
+  color: magenta;
+  border: magenta 2px solid;
+}
+/*
+.displayborder{
+  position: absolute;
+  top: 20px;
+  left:
+  height: 20px;
+
+}*/
 
 .pokemoninput{
   position: absolute;

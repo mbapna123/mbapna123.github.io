@@ -1,6 +1,7 @@
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
+$(".display").hide()
 meterfinal=1.98
 imagechosen="peterdink.png"
 pokemonchosen="pikachu"
@@ -117,14 +118,17 @@ $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
   Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal;
   Utwo="http://pokeapi.co/api/v2/pokemon/" + pokemonchosenfinal;
+
   $.getJSON(Uone,function(dataone){
    heightpokemon=dataone.height;
 })
+.done(function(){
 $.getJSON(Utwo,function(datatwo){
    imagepokemon=datatwo.sprites.front_default;
    $(".pokee").attr("src",imagepokemon)
     imagechosen2=$(".imageinput").val()
    $(".human").attr("src",imagechosen2)
+
    x=meterfinal/(heightpokemon/10);
    if (x>1){
      adjustedratio=x*(-.01666667*x+1.01667)
@@ -158,7 +162,17 @@ if (adjustedratio<.06 ){
      $(".human").css("height",225*adjustment)
      $(".human").css("width",120*adjustment)
    }
-})})
+   if (adjustment>1){
+     $(".explainpara").hide()
+     $(".display").show()
+     $(".display").text("You are " + x.toFixed(2) +" times bigger"  + " than " +  pokemonchosenfinal)
+   }
+   else{
+     $(".explainpara").hide()
+     $(".display").show()
+     $(".display").text("You are " + (1/x).toFixed(2) +" times smaller"  + " than " +  pokemonchosenfinal)
+   }
+})})})
 
 $(".whatiscors").hover(function(){
   $(".whatiscors").css("background","linear-gradient(white,grey)")},
