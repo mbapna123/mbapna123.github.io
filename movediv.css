@@ -109,26 +109,7 @@ opacity: 1;
   color: purple;
 
 }
-/*
-.inches{
-  position: absolute;
-  top: 119px;
-  left: 266px;
-  height: 30px;
-  width: 200px;
-  text-align: center;
-  opacity: 0;
-}
 
-.feetinches{
-  position: absolute;
-  top: 119px;
-  left: 266px;
-  height: 30px;
-  width: 200px;
-  text-align: center;
-  opacity: 0;
-}*/
 
 .pokemoninput{
   position: absolute;
@@ -279,36 +260,6 @@ li{
   height: 30px;
   width: 300px
 }
-
-
-/*
-.passionate{
-  position: absolute;
-  bottom: 387px;
-  right: 40px;
-  height: 100px;
-  width: 300px;
-  text-align: center;
-  font-size: 24px;
-}
-
-.quicklearner{
-  position: absolute;
-  top: 230px;
-  right: 40px;
-  height: 100px;
-  width: 300px;
-  text-align: center;
-}
-
-.education{
-  position: absolute;
-  top: 485px;
-  right: 40px;
-  height: 100px;
-  width: 300px;
-  text-align: center;
-}*/
 
 .bodypost{
   position: absolute;

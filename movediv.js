@@ -124,7 +124,6 @@ $.getJSON(Utwo,function(datatwo){
    $(".pokee").attr("src",imagepokemon)
     imagechosen2=$(".imageinput").val()
    $(".human").attr("src",imagechosen2)
-   alert(meterfinal)
    x=meterfinal/(heightpokemon/10);
    if (x>1){
      adjustedratio=x*(-.01666667*x+1.01667)
@@ -132,7 +131,6 @@ $.getJSON(Utwo,function(datatwo){
    else{
      adjustedratio=x*(1.32-.32*x)
    }
-   alert(adjustedratio)
    if (adjustedratio>50 ){
      alert("Ratio is " + x + " which is too much for this program to handle.")
      return
