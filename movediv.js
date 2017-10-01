@@ -155,12 +155,12 @@ pokemonchosenfinal=$(".pokemoninput").val();
      else{
        adjustedratio=x*(1.32-.32*x)
      }
-     if (adjustedratio>50 ){
-       alert("You" + " are too much taller than" + pokemonchosenfinal + " for this program to handle.")
+     if (adjustedratio>20 ){
+       alert("You" + " are too much taller than" + pokemonchosenfinal + " for this browser to handle.")
        return true;
      }
-  if (adjustedratio<.06 ){
-       alert(pokemonchosenfinal + " is too tall compared to you for this program to handle.")
+  if (adjustedratio<.1 ){
+       alert(pokemonchosenfinal + " is too tall compared to you for this browser to handle.")
        return true;
      }
      adjustment=Math.pow(adjustedratio,.5)
