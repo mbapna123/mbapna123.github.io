@@ -6,6 +6,7 @@
   width: 1200px;
   position: relative;
   left: 200px;
+  background-repeat: no-repeat;
 }
 
 .leftpic{
@@ -18,6 +19,17 @@
   background-size: 100% 100%;
   opacity: 0;
 }
+
+.rightpic{
+  position: absolute;
+  right: 100px;
+  height: 600px;
+  width: 1000px;
+  top: 50px;
+  background-image: url("https://wallinsider.com/wp-content/uploads/2017/08/Blue-Pok%C3%A9mon-Wallpapers-11.png");
+  background-size: 100% 100%;
+}
+
 
 .human{
   position: absolute;
@@ -89,7 +101,7 @@ opacity: 1;
 
 .meterheight{
   position: absolute;
-  top: 124px;
+  top: 126px;
   left: 380px;
   height: 30px;
   width: 60px;
@@ -192,7 +204,7 @@ li{
   width: 300px;
   bottom: 680px;
   left: 660px;
-  color: purple;
+  color: black;
 }
 
 .smallfont{
@@ -321,16 +333,6 @@ li{
 }
 
 
-.rightpic{
-  position: absolute;
-  right: 100px;
-  height: 600px;
-  width: 1000px;
-  top: 50px;
-  background-image: url("https://wallinsider.com/wp-content/uploads/2017/08/Blue-Pok%C3%A9mon-Wallpapers-11.png");
-  background-size: 100% 100%;
-}
-
 
 .imagearrow{
   position: absolute;
@@ -339,9 +341,7 @@ li{
   bottom: 270px;
   right: 200px;
   background-color: #ADD8E6;
-  /*font-size: 180px;
-  font-weight: bold;
-  font-family: Comic Sans MS;*/
+
 }
 
 .imagearrowbox{
@@ -370,9 +370,9 @@ body, html{
   background-image: url("https://hdwallsource.com/img/2014/6/cloud-wallpaper-21880-22433-hd-wallpapers.jpg");
 }
 .image2border{
+  position: absolute;
   height: 100px;
   width: 80px;
-  position: absolute;
   bottom:400px;
   left: 820px;
   text-align: center;
@@ -381,10 +381,10 @@ body, html{
 }
 
 .KButton{
+  position: absolute;
   height: 67px;
   width: 171px;
-  position: absolute;
   bottom: 490px;
   left: 822px;
-  border: green 2px solid;
+  border: 2px green solid;
 }

@@ -1,22 +1,38 @@
+var hehe=false;
+var meterfinal=1.98;
+var imagechosen="peterdink.png";
+var pokemonchosen="pikachu";
+var arr;
+var valuee;
+var poke;
+var iterate
+var meterfinal
+var inchesheight
+var Uone
+var Utwo
+var imagechosen2
+var x
+var adjustment
+var adjustedratio
+var dataone
+var datatwo
+var id
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
 $(".display").hide()
-meterfinal=1.98
-imagechosen="peterdink.png"
-pokemonchosen="pikachu"
-  $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
-     iterate=0;
-     arr=[];
+$.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
+      iterate=0;
+      arr=[];
     while(pokedata.pokemon[iterate].name!="null"){
       arr[iterate]=pokedata.pokemon[iterate].name
       iterate++
     }})
   $(".imagearrowbox").click(function(){
-    $(".rightpic").animate({"left":"+=1100px", opacity: 0},4000)
-    $(".leftpic").animate({"left":"+=1100px", opacity: 1},4000,function(){
-      $(".info").css("bottom","660")
-    })})
+    $(".rightpic").animate({"left":"2400px", opacity: 1},4000)
+    $(".leftpic").animate({"right":"100px", opacity: 1},4000,function(){
+      $(".info").css("bottom","660px")})})
+
 
    $(function(){$("#menu-1").menu()})
 
@@ -41,12 +57,12 @@ $(".KButton").removeClass()
 
 
   $(".metersfile").click(function(){
-    t=0;
+var t=0;
       $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
        $(".meterheight").text("meters")
   meterfinal=$(".heightone").val();
   $(".heightone").keyup(function(){
-  var valuee=$(".heightone").val().length
+   valuee=$(".heightone").val().length
   meterfinal=$(".heightone").val()
     if (valuee!=0){
       $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
@@ -67,11 +83,11 @@ $(".heightone").keyup(function(){
 
 $(".inchesfile").click(function(){
    $(".meterheight").text("inches")
-  t=1;
+  var t=1;
     $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
     meterfinal=$(".heightone").val()*.0254;
 $(".heightone").keyup(function(){
-var valuee=$(".heightone").val().length
+ valuee=$(".heightone").val().length
 inchesheight=$(".heightone").val();
 meterfinal=inchesheight*.0254;
   if (valuee!=0){
@@ -90,7 +106,7 @@ function(){
    $(".pokemoninput").keyup(function(){
          $(".pokemoninput").autocomplete({source: arr})
      pokemonchosen=$(".pokemoninput").val()
-     var poke=$(".pokemoninput").val()
+      poke=$(".pokemoninput").val()
      if (poke.length!=0){
        $(".pokemonimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
      }
@@ -103,76 +119,80 @@ $(".submitimage").hover(function(){
      $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")})
      $(".imageinput").keyup(function(){
        imagechosen=$(".imageinput").val()
-       var poke=$(".imageinput").val()
+        poke=$(".imageinput").val()
        if (poke.length!=0){
          $(".imagefile").css("background","linear-gradient(#16B9D4,#9AE3F0)")
        }
        else{
         $(".imagefile").css("background","linear-gradient(white,gray)")}})
 
-$( document ).ajaxError(function() {
-  alert("Database cannot be accessed. Internet must be working! Enable the CORS Chrome Extension and allow your browser to load from unauthenticated sources.")
+$(document).ajaxError(function() {
+  alert('Database cannot be accessed. Internet must be working!')
 })
+
 
 $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
-  Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal;
-  Utwo="http://pokeapi.co/api/v2/pokemon/" + pokemonchosenfinal;
-
-  $.getJSON(Uone,function(dataone){
-   heightpokemon=dataone.height;
-})
+  Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal
+    $.ajax({
+      type:"GET",
+      jsonp: "callback",
+      dataType: "jsonp",
+      url: Uone,
+      success: function(dataone){
+      heightpokemon=dataone.height
+      id=dataone.national_id
+      }})
 .done(function(){
-$.getJSON(Utwo,function(datatwo){
-   imagepokemon=datatwo.sprites.front_default;
-   $(".pokee").attr("src",imagepokemon)
-    imagechosen2=$(".imageinput").val()
-   $(".human").attr("src",imagechosen2)
+  Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
+     $(".pokee").attr("src",Utwo)
+      imagechosen2=$(".imageinput").val()
+     $(".human").attr("src",imagechosen2)
+     x=meterfinal/(heightpokemon/10);
+     if (x>1){
+       adjustedratio=x*(-.01666667*x+1.01667)
+     }
+     else{
+       adjustedratio=x*(1.32-.32*x)
+     }
+     if (adjustedratio>50 ){
+       alert("You" + " are too much taller than" + pokemonchosenfinal + " for this program to handle.")
+       return true;
+     }
+  if (adjustedratio<.06 ){
+       alert(pokemonchosenfinal + " is too tall compared to you for this program to handle.")
+       return true;
+     }
+     adjustment=Math.pow(adjustedratio,.5)
+     if (adjustment>2.5){
+       $(".pokee").css("height",240/(adjustment*2))
+       $(".pokee").css("width", 240/(adjustment*2))
+       $(".human").css("height",225*(adjustment/2))
+       $(".human").css("width",120*(adjustment/2))
+     }
+     else if (adjustment<.35) {
+       $(".pokee").css("height",240/(adjustment/2))
+       $(".pokee").css("width", 240/(adjustment/2))
+       $(".human").css("height",225*(adjustment*2))
+       $(".human").css("width",120*(adjustment*2))
+     }
+     else{
+       $(".pokee").css("height",240/adjustment)
+       $(".pokee").css("width", 240/adjustment)
+       $(".human").css("height",225*adjustment)
+       $(".human").css("width",120*adjustment)
+     }
+     if (adjustment>1){
+       $(".explainpara").hide()
+       $(".display").show()
+       $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pokemonchosenfinal)
+     }
+     else{
+       $(".explainpara").hide()
+       $(".display").show()
+       $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
+     }})})
 
-   x=meterfinal/(heightpokemon/10);
-   if (x>1){
-     adjustedratio=x*(-.01666667*x+1.01667)
-   }
-   else{
-     adjustedratio=x*(1.32-.32*x)
-   }
-   if (adjustedratio>50 ){
-     alert("Ratio is " + x + " which is too much for this program to handle.")
-     return
-   }
-if (adjustedratio<.06 ){
-     alert("Ratio is " + x + " which is too much for this program to handle.")
-     return}
-   adjustment=Math.pow(adjustedratio,.5)
-   if (adjustment>2.5){
-     $(".pokee").css("height",240/(adjustment*2))
-     $(".pokee").css("width", 240/(adjustment*2))
-     $(".human").css("height",225*(adjustment/2))
-     $(".human").css("width",120*(adjustment/2))
-   }
-   else if (adjustment<.35) {
-     $(".pokee").css("height",240/(adjustment/2))
-     $(".pokee").css("width", 240/(adjustment/2))
-     $(".human").css("height",225*(adjustment*2))
-     $(".human").css("width",120*(adjustment*2))
-   }
-   else{
-     $(".pokee").css("height",240/adjustment)
-     $(".pokee").css("width", 240/adjustment)
-     $(".human").css("height",225*adjustment)
-     $(".human").css("width",120*adjustment)
-   }
-   if (adjustment>1){
-     $(".explainpara").hide()
-     $(".display").show()
-     $(".display").text("You are " + x.toFixed(2) +" times bigger"  + " than " +  pokemonchosenfinal)
-   }
-   else{
-     $(".explainpara").hide()
-     $(".display").show()
-     $(".display").text("You are " + (1/x).toFixed(2) +" times smaller"  + " than " +  pokemonchosenfinal)
-   }
-})})})
 
 $(".whatiscors").hover(function(){
   $(".whatiscors").css("background","linear-gradient(white,grey)")},
@@ -222,6 +242,6 @@ $(".whatiscors").hover(function(){
 
 
   $(".KButton").hover(function(){
-  $(".image2border").animate({color:"green"},150)},
-  function(){$(".image2border").animate({color: "black"}, 150)})
+  $(".image2border").animate({color:"green"},"150")},
+  function(){$(".image2border").animate({color: "black"}, "150")})
 })
