@@ -30,8 +30,7 @@ $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
     }})
   $(".imagearrowbox").click(function(){
     $(".rightpic").animate({"left":"2400px", opacity: 1},4000)
-    $(".leftpic").animate({"right":"100px", opacity: 1},4000,function(){
-      $(".info").css("bottom","660px")})})
+    $(".leftpic").animate({"right":"100px", opacity: 1},4000)})
 
 
    $(function(){$("#menu-1").menu()})
@@ -48,6 +47,7 @@ $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
     $(".rightpic").removeClass()
     $("#menu-1").show()
     $(".pokewindow").show()
+    $(".infofirstsecond").hide()
 $(".KButton").removeClass()
   })
 
@@ -193,11 +193,11 @@ pokemonchosenfinal=$(".pokemoninput").val();
        $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
      }})})
 
-
-$(".whatiscors").hover(function(){
-  $(".whatiscors").css("background","linear-gradient(white,grey)")},
-  function(){$(".whatiscors").css("background","white")
-})
+//
+// $(".whatiscors").hover(function(){
+//   $(".whatiscors").css("background","linear-gradient(white,grey)")},
+//   function(){$(".whatiscors").css("background","white")
+// })
 
   $(".passionateheading").click(function(){
     $(".bodypost").html(" <br> <br>Starting in April this year, I have been on a mission to become a junior developer. At first, I learnt Core Java. Next, to master my skills in Core Java I studied for and attained an Oracle Java Certification which is designed for Java Developers working in the field! Then, I completed basic applications using tools in Java Web Development. Finally, I learnt HTML, CSS and JavaScript which are all on display right here! I do not see myself losing my zest for web development anytime soon!")

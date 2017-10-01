@@ -197,16 +197,26 @@ li{
   color: black;
 }
 
-.info{
+.infofirstsecond{
   position: absolute;
+  text-align: center;
   height: 30px;
   font-size: 16px;
   width: 300px;
-  bottom: 680px;
-  left: 660px;
+  bottom: 545px;
+  left: 350px;
   color: black;
 }
 
+.infothird{
+  position: absolute;
+  text-align: center;
+  height: 30px;
+  font-size: 16px;
+  width: 300px;
+  bottom: 700px;
+  color: black;
+}
 .smallfont{
   font-size: 12px;
 }
