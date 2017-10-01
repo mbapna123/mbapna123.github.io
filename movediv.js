@@ -133,7 +133,7 @@ $(document).ajaxError(function() {
 
 $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
-  Uone="http://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal
+  Uone="https://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal
     $.ajax({
       type:"GET",
       jsonp: "callback",
