@@ -39,13 +39,13 @@ $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
   //   $(".leftpic").effect("fade",1000)
     $(".image2border").removeClass()
     $(".leftpicpara").removeClass();
-    $(".paraone").removeClass();
     $(".whatiscors").removeClass()
     $(".corsans").removeClass()
     $(".leftpic").removeClass()
     $(".rightpic").find("*").removeClass()
     $(".rightpic").removeClass()
     $("#menu-1").show()
+    $(".paraone").hide()
     $(".pokewindow").show()
     $(".infofirstsecond").hide()
 $(".KButton").removeClass()

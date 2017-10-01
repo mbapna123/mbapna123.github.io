@@ -74,13 +74,14 @@ position: absolute;
 top: 90px;
 left: 266px;
 height: 30px;
-width: 200px;
+width: 500px;
 text-align: center;
+font-size: 10px;
 }
 
 .heightone{
 position: absolute;
-top: 119px;
+top: 125px;
 left: 266px;
 height: 30px;
 width: 200px;
@@ -91,7 +92,7 @@ opacity: 1;
 
 .heighttwo{
   position: absolute;
-  top: 119px;
+  top: 125px;
   left: 266px;
   height: 30px;
   width: 200px;
@@ -143,7 +144,7 @@ opacity: 1;
 
 .pokemoninput{
   position: absolute;
-  top: 149px;
+  top: 150px;
   left: 266px;
   height: 30px;
   width: 200px;
@@ -208,15 +209,7 @@ li{
   color: black;
 }
 
-.infothird{
-  position: absolute;
-  text-align: center;
-  height: 30px;
-  font-size: 16px;
-  width: 300px;
-  bottom: 700px;
-  color: black;
-}
+
 .smallfont{
   font-size: 12px;
 }
