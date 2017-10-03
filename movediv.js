@@ -17,6 +17,10 @@ var adjustedratio
 var dataone
 var datatwo
 var id
+var valueerr=0;
+var valueerrtwo=0;
+var valueerrthree=0;
+var errork=1;
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
@@ -75,7 +79,7 @@ var t=0;
       $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
     }
     else{
-      $(".heightclass").css("background","linear-gradient(white,gray)")
+      $(".heightclass").css("background","linear-gradient(white,grey)")
     }
   })
     $(".heightone").hover(function(){
@@ -86,6 +90,20 @@ var t=0;
 
 $(".heightone").keyup(function(){
   meterfinal=$(".heightone").val()
+  if (meterfinal!=0){
+    $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+    errork=1;
+      {
+        $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+      }
+  }
+  else{
+    errork=0;
+    $(".heightclass").css("background","linear-gradient(white,grey)")
+    valueerr=1;
+  $(".submitimage").css("background","linear-gradient(white,grey)")
+  }
 })
 
 $(".inchesfile").click(function(){
@@ -101,7 +119,7 @@ meterfinal=inchesheight*.0254;
     $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
   }
   else{
-    $(".heightclass").css("background","linear-gradient(white,gray)")
+    $(".heightclass").css("background","linear-gradient(white,grey)")
   }
 })
   $(".heightone").hover(function(){
@@ -114,7 +132,15 @@ function(){
 $(".pokemoninput").click(function(){
 $(".pokemoninput").autocomplete({source: arr,
   select: function(event,ob){
-    $(".errorpoke").hide()}})})
+    $(".errorpoke").hide()
+    $(".pokemonimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+    valueerrtwo=0;
+    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+    errork=1;
+      {
+        $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+      }
+  }})})
 
    $(".pokemoninput").keyup(function(){
      var kobe=false;
@@ -124,7 +150,7 @@ $(".pokemoninput").autocomplete({source: arr,
        $(".pokemonimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
      }
      else{
-      $(".pokemonimage").css("background","linear-gradient(white,gray)")}
+      $(".pokemonimage").css("background","linear-gradient(white,grey)")}
       for (var i=0;i<arr.length;i++){
           if (poke==arr[i]) {
                kobe=true;
@@ -132,24 +158,35 @@ $(".pokemoninput").autocomplete({source: arr,
               }}
 console.log(kobe)
               if (kobe){
+                valueerrtwo=0;
                 $(".errorpoke").hide()
-              }
+                $(".pokemonimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+                if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+                errork=1;
+                  {
+                    $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+                  }}
               else{
-              $(".errorpoke").show()
+                errork=0;
+                valueerrtwo=1;
+                $(".errorpoke").show()
+                $(".pokemonimage").css("background","linear-gradient(white,grey)")
+                $(".submitimage").css("background","linear-gradient(white,grey)")
     }})
 
 $(".submitimage").hover(function(){
-   $(".submitimage").css("background","linear-gradient(#80EACA,#0AC88F)")},function(){
-     $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")})
+  if (errork==1){
+   $(".submitimage").css("background","linear-gradient(#80EACA,#0AC88F)")}
+   else{ $(".submitimage").css("background","yellow")}},function(){
+     if (errork==1){
+       $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")}
+       else{$(".submitimage").css("background","linear-gradient(white,grey)")}
+     })
+
 
      $(".imageinput").keyup(function(){
        imagechosen=$(".imageinput").val()
-        poke=$(".imageinput").val()
-       if (poke.length!=0){
-         $(".imagefile").css("background","linear-gradient(#16B9D4,#9AE3F0)")
-       }
-       else{
-        $(".imagefile").css("background","linear-gradient(white,gray)")}})
+        poke=$(".imageinput").val()})
 
 $(document).ajaxError(function() {
   alert('Database cannot be accessed. Internet must be working!')
@@ -157,6 +194,11 @@ $(document).ajaxError(function() {
 
 
 $(".submitimage").click(function(){
+  console.log($(".submitimage").css("background"))
+  if (errork==0){
+    alert("All information must be valid before submitting!")
+    return
+  }
 pokemonchosenfinal=$(".pokemoninput").val();
 $(".pokee").attr("alt",pokemonchosenfinal)
   Uone="https://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal
@@ -219,11 +261,6 @@ $(".pokee").attr("alt",pokemonchosenfinal)
        $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
      }})})
 
-//
-// $(".whatiscors").hover(function(){
-//   $(".whatiscors").css("background","linear-gradient(white,grey)")},
-//   function(){$(".whatiscors").css("background","white")
-// })
 
   $(".passionateheading").click(function(){
     $(".bodypost").html(" <br> <br>Starting in April this year, I have been on a mission to become a junior developer. At first, I learnt Core Java. Next, to master my skills in Core Java I studied for and attained an Oracle Java Certification which is designed for Java Developers working in the field! Then, I completed basic applications using tools in Java Web Development. Finally, I learnt HTML, CSS and JavaScript which are all on display right here! I do not see myself losing my zest for web development anytime soon!")

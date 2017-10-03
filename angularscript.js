@@ -14,8 +14,18 @@ app.directive('myDirective', function() {
       function myValidation(value) {
         if (value.indexOf(".jpg") > -1 ||value.indexOf(".png") > -1 ||value.indexOf(".jpeg") > -1||value.indexOf(".gif") > -1) {
           mCtrl.$setValidity('imagefunc', true);
+          $(".imagefile").css("background","linear-gradient(#16B9D4,#9AE3F0)");
+          if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+          errork=1;
+            {
+              $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+            }
         } else {
+          errork=0;
           mCtrl.$setValidity('imagefunc', false);
+          $(".imagefile").css("background","linear-gradient(white,grey)");
+          var valueerrthree=1;
+          $(".submitimage").css("background","linear-gradient(white,grey)")
         }
         return value;
       }
