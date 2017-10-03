@@ -33,27 +33,3 @@ app.directive('myDirective', function() {
     }
   }
 })
-
-// app.directive('myDirective', function() {
-//   return {
-//     alert("hi")
-//     require: 'ngModel',
-//     link: function(scope, element, attr, mCtrl) {
-//       function myValidation(value) {
-//         for (i=0;i<arr.length;i++){
-//         if (value==arr[i]) {
-//           kobe=true;
-//           break;
-//         }}
-//         if (kobe){
-//           mCtrl.$setValidity('pokefunc', false);
-//         }
-//         else{
-//             mCtrl.$setValidity('pokefunc', true);
-//         }
-//         return value;
-//       }
-//       mCtrl.$parsers.push(myValidation);
-//     }
-//   }
-// })
