@@ -1,5 +1,5 @@
 var hehe=false;
-var meterfinal=1.98;
+var meterfinal=2.00;
 var imagechosen="peterdink.png";
 var pokemonchosen="pikachu";
 var arr;
@@ -21,6 +21,8 @@ $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
 $(".display").hide()
+$(".errorpoke").hide()
+
 $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
       iterate=0;
       arr=[];
@@ -28,6 +30,11 @@ $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
       arr[iterate]=pokedata.pokemon[iterate].name
       iterate++
     }})
+
+
+
+
+
   $(".imagearrowbox").click(function(){
     $(".rightpic").animate({"left":"2400px", opacity: 1},4000)
     $(".leftpic").animate({"right":"100px", opacity: 1},4000)})
@@ -103,8 +110,14 @@ function(){
  $(".meterheight").text("inches")
 })})
 
+
+$(".pokemoninput").click(function(){
+$(".pokemoninput").autocomplete({source: arr,
+  select: function(event,ob){
+    $(".errorpoke").hide()}})})
+
    $(".pokemoninput").keyup(function(){
-         $(".pokemoninput").autocomplete({source: arr})
+     var kobe=false;
      pokemonchosen=$(".pokemoninput").val()
       poke=$(".pokemoninput").val()
      if (poke.length!=0){
@@ -112,11 +125,23 @@ function(){
      }
      else{
       $(".pokemonimage").css("background","linear-gradient(white,gray)")}
-    })
+      for (var i=0;i<arr.length;i++){
+          if (poke==arr[i]) {
+               kobe=true;
+               break;
+              }}
+console.log(kobe)
+              if (kobe){
+                $(".errorpoke").hide()
+              }
+              else{
+              $(".errorpoke").show()
+    }})
 
 $(".submitimage").hover(function(){
    $(".submitimage").css("background","linear-gradient(#80EACA,#0AC88F)")},function(){
      $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")})
+
      $(".imageinput").keyup(function(){
        imagechosen=$(".imageinput").val()
         poke=$(".imageinput").val()
@@ -133,6 +158,7 @@ $(document).ajaxError(function() {
 
 $(".submitimage").click(function(){
 pokemonchosenfinal=$(".pokemoninput").val();
+$(".pokee").attr("alt",pokemonchosenfinal)
   Uone="https://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal
     $.ajax({
       type:"GET",
@@ -202,7 +228,6 @@ pokemonchosenfinal=$(".pokemoninput").val();
   $(".passionateheading").click(function(){
     $(".bodypost").html(" <br> <br>Starting in April this year, I have been on a mission to become a junior developer. At first, I learnt Core Java. Next, to master my skills in Core Java I studied for and attained an Oracle Java Certification which is designed for Java Developers working in the field! Then, I completed basic applications using tools in Java Web Development. Finally, I learnt HTML, CSS and JavaScript which are all on display right here! I do not see myself losing my zest for web development anytime soon!")
   })
-
   $(".quicklearnerhead").click(function(){
     $(".bodypost").html(" <br> Wikipedia and Khan Academy have transformed the educational landscape, allowing people, regardless of their backgrounds to learn virtually anything they want to.  Skype has allowed for loved one's to share joy with their spouses even if they live in the farthest corner of the Earth. Online companies such as WebMD and IsabelHealthCare have allowed people to diagnose themselves <span class=smallfont> (with caution) </span>, many times saving their lives.  Web applications have and WILL continue to change the world for the better. This is why I want to become a web developer.")
   })

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-<script type="text/javascript" src="movediv.js"></script>
+  <script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="angularscript.js"> </script>
+  <script type="text/javascript" src="movediv.js"></script>
   <link rel="stylesheet" type="text/css" href="movediv.css">
   <link type="text/css" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
   <title> PokeAPI Project </title>
@@ -15,14 +17,21 @@
     <div class="display"> </div>
     <p class="explainpara"> Enter all your information in the boxes directly below and press Submit! </p>
     <img class="pokee" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/289.png" alt="slaking">
-    <img class="human" src="kevindurant.jpg" alt="Image of Kevin Durant">
-    <input type="text" name="image" class="imageinput" value="http://2.bp.blogspot.com/-cIfnFtBMTXo/VKzymP76l9I/AAAAAAAAAJk/_vHlnkMMsIM/s1600/durant.jpg">
-    <input type="text" class="heightone"  value ="1.98"> <span class="meterheight"> meters </span>
-    <input type="text" class="pokemoninput" value="slaking" name="pokemon">
+    <form name="myForm" ng-app="pokeapp" ng-controller="controller">
+    <img class="human" src="kevindurant.jpg" alt="Human Image">
+    <input name="image" class="imageinput" name="image" ng-model="image" required my-directive>
+    <span class="errorimage" ng-show="myForm.image.$invalid">Valid Image File required.</span>
+    <input type="number" class="heightone" name="user"  ng-model="user" required>
+    <span style="color:red" ng-show="myForm.user.$invalid">
+    </span>
+    <span class="meterheight"> meters </span>
+    <input class="pokemoninput" name="pokemon" ng-model="pokemon" required>
+  <span class="errorpoke"> Input a valid Pokemon </span>
+  </form>
     <div class="pokemenubar">
       <div class="pokemenu">
  <ul id = "menu-1">
-     <li class="imagefile"><a href = "#">URL Image File </a> </li>
+     <li class="imagefile"><a href = "#">Image File </a> </li>
 <li class="heightclass"><a href = "#">Height </a>
   <ul>
     <li class="metersfile"><a href = "#">Meters</a> </li>

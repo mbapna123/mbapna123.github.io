@@ -102,7 +102,7 @@ opacity: 1;
 
 .meterheight{
   position: absolute;
-  top: 126px;
+  top: 132px;
   left: 380px;
   height: 30px;
   width: 60px;
@@ -390,4 +390,26 @@ body, html{
   bottom: 490px;
   left: 822px;
   border: 2px green solid;
+}
+
+.errorpoke{
+  position: absolute;
+  top: 150px;
+  left: 360px;
+  height: 10px;
+  width: 200px;
+  text-align: left;
+  color: red;
+  font-size: 10px;
+}
+
+.errorimage{
+position: absolute;
+top: 90px;
+left: 640px;
+height: 10px;
+width: 500px;
+text-align: left;
+font-size: 10px;
+color: red;
 }
