@@ -96,10 +96,10 @@ var t=0;
 $(".heightone").keyup(function(){
   meterfinal=$(".heightone").val()
   if (meterfinal!=0){
+    valueerr=0;
     $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
-    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1){
     errork=1;
-      {
         $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
       }
   }
@@ -113,7 +113,6 @@ $(".heightone").keyup(function(){
 
 $(".inchesfile").click(function(){
    $(".meterheight").text("inches")
-  var t=1;
     $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
     meterfinal=$(".heightone").val()*.0254;
 $(".heightone").keyup(function(){
@@ -145,10 +144,9 @@ $(".pokemoninput").autocomplete({source: arr,
     $(".errorpoke").hide()
     $(".pokemonimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
     valueerrtwo=0;
-    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1){
     errork=1;
-      {
-        $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+      $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
       }
   }})})
 
@@ -171,9 +169,8 @@ console.log(kobe)
                 valueerrtwo=0;
                 $(".errorpoke").hide()
                 $(".pokemonimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
-                if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1)
+                if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1){
                 errork=1;
-                  {
                     $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
                   }}
               else{
