@@ -76,6 +76,11 @@ var t=0;
    valuee=$(".heightone").val().length
   meterfinal=$(".heightone").val()
     if (valuee!=0){
+      valueerr=0;
+      if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1){
+      errork=1;
+          $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+        }
       $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
     }
     else{
@@ -116,6 +121,11 @@ $(".heightone").keyup(function(){
 inchesheight=$(".heightone").val();
 meterfinal=inchesheight*.0254;
   if (valuee!=0){
+    valueerr=0;
+    if (valueerrthree!=1 && valueerrtwo!=1 && valueerr!=1){
+    errork=1;
+        $(".submitimage").css("background","linear-gradient(#16B9D4,#9AE3F0)")
+      }
     $(".heightclass").css("background","linear-gradient(#16B9D4,#9AE3F0)")
   }
   else{
