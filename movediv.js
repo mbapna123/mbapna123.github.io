@@ -277,7 +277,7 @@ $(".pokee").attr("alt",pokemonchosenfinal)
   })
 
   $(".educationhead").click(function(){
-    $(".bodypost").html(" <br> I have always been excellent at understand and applying technical skills. In my math and science classes at my engineering school, I was always one of the first to find the solution to a problem. Most directly, I have learnt web development skills in a relatively short period. For example, I attained my Oracle Java Certification on my first attempt with two months of studying! I know that as a developer, one of my most important skills will be learning and applying technical skills. As long as I continue to possess my grit and intelligence, I know that I will be a fantastic developer.")
+    $(".bodypost").html(" <br> I have always been excellent at understanding and applying technical skills. In my math and science classes at my engineering school, I was always one of the first to find the solution to a problem. Most directly, I have learnt web development skills in a relatively short period. For example, I attained my Oracle Java Certification on my first attempt with two months of studying! I know that as a developer, one of my most important skills will be learning and applying technical skills. As long as I continue to possess my grit and intelligence, I know that I will be a fantastic developer.")
   })
 
   $(".educationh").click(function(){
