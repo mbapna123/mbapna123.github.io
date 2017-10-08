@@ -21,6 +21,7 @@ var valueerr=0;
 var valueerrtwo=0;
 var valueerrthree=0;
 var errork=1;
+var host="http://localhost:8080";
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
@@ -266,7 +267,16 @@ $(".pokee").attr("alt",pokemonchosenfinal)
        $(".explainpara").hide()
        $(".display").show()
        $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
-     }})})
+     }
+     $.ajax({
+       type:"GET",
+       url: host,
+       data: {pokemonis: pokemonchosenfinal, heightis:parseInt(meterfinal), imageis:imagechosen2 }
+     ,
+       success: function(datasql){
+         console.log(datasql);
+       }})
+   })})
 
 
   $(".passionateheading").click(function(){

@@ -1,0 +1,24 @@
+{
+  "name": "c",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ServerSide.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbapna123/mbapna123.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbapna123/mbapna123.github.io/issues"
+  },
+  "homepage": "https://github.com/mbapna123/mbapna123.github.io#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.1"
+  }
+}
