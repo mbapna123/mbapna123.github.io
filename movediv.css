@@ -1,3 +1,5 @@
+*{outline: 2px black solid;}
+
 .window{
   height: 700px;
   width: 1200px;
@@ -27,7 +29,28 @@
   background-size: 100% 100%;
 }
 
+.sqlbar{
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  left: 100px;
+  top: 300px;
+  text-align: center;
+}
 
+.sqlbar img{
+  height: 50px;
+  width: 50px;
+}
+
+.byDate{
+  position: absolute;
+
+}
+
+.byPokemon{
+
+}
 .human{
   position: absolute;
   bottom: 20px;

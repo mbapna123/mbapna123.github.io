@@ -275,6 +275,7 @@ $(".pokee").attr("alt",pokemonchosenfinal)
      ,
        success: function(datasql){
          console.log(datasql);
+         $(".sqlbar").html(datasql);
        }})
    })})
 
