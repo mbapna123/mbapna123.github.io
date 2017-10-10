@@ -3,7 +3,7 @@ var kobe=false;
 
 app.controller('controller', function($scope) {
     $scope.user = 2.00;
-    $scope.image = "http://2.bp.blogspot.com/-cIfnFtBMTXo/VKzymP76l9I/AAAAAAAAAJk/_vHlnkMMsIM/s1600/durant.jpg";
+    $scope.image = "https://2.bp.blogspot.com/-cIfnFtBMTXo/VKzymP76l9I/AAAAAAAAAJk/_vHlnkMMsIM/s1600/durant.jpg";
     $scope.pokemon="slaking"
 })
 

@@ -6,7 +6,6 @@ var arr;
 var valuee;
 var poke;
 var iterate
-var meterfinal
 var inchesheight
 var Uone
 var Utwo
@@ -22,6 +21,7 @@ var valueerrtwo=0;
 var valueerrthree=0;
 var errork=1;
 var host="http://localhost:8080";
+var date;
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
@@ -271,15 +271,44 @@ $(".pokee").attr("alt",pokemonchosenfinal)
      $.ajax({
        type:"GET",
        url: host,
-       data: {pokemonis: pokemonchosenfinal, heightis:parseInt(meterfinal), imageis:imagechosen2 }
+       data: {pokemonis: pokemonchosenfinal, heightis: parseInt(meterfinal), imageis:imagechosen2,dateis: 3 }
      ,
        success: function(datasql){
          console.log(datasql);
          $(".sqlbar").html(datasql);
        }})
+
    })})
 
+$(".byDate").click(function(){
+  console.log("hi")
+  $.ajax({
+    type:"GET",
+    url: host,
+    data: {dateis: 4}
+  ,
+    success: function(datasql){
+      console.log(datasql);
+      $(".sqlbar").html(datasql);
+    }})
+})
 
+$(".byPokemon").click(function(){
+  $(".byPokemon").autocomplete({source: arr,
+    select: function(event,ob){
+      console.log("hi")
+      $.ajax({
+        type:"GET",
+        url: host,
+        data: {dateis: 5, pokemonis:ob.item.value}
+      ,
+        success: function(datasql){
+          console.log("hey")
+          console.log(datasql);
+          $(".sqlbar").html(datasql);
+        }})
+    }})
+})
   $(".passionateheading").click(function(){
     $(".bodypost").html(" <br> <br>Starting in April this year, I have been on a mission to become a junior developer. At first, I learnt Core Java. Next, to master my skills in Core Java I studied for and attained an Oracle Java Certification which is designed for Java Developers working in the field! Then, I completed basic applications using tools in Java Web Development. Finally, I learnt HTML, CSS and JavaScript which are all on display right here! I do not see myself losing my zest for web development anytime soon!")
   })

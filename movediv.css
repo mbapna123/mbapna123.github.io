@@ -45,11 +45,21 @@
 
 .byDate{
   position: absolute;
-
+  top: 228px;
+  left: 60px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
 }
 
 .byPokemon{
-
+  position: absolute;
+  top: 263px;
+  left: 60px;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  font-size: 11px;
 }
 .human{
   position: absolute;
