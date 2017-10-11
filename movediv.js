@@ -196,7 +196,7 @@ $(".submitimage").hover(function(){
         poke=$(".imageinput").val()})
 
 $(document).ajaxError(function() {
-  alert('Database cannot be accessed. MySQL and NodeJS is only on localhost now! Looking to fix that!')
+  alert('Database cannot be accessed. MySQL and NodeJS is only on localhost now! Looking to put my NodeJS code on a dedicated server!')
 })
 
 
