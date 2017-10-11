@@ -273,25 +273,170 @@ $(".pokee").attr("alt",pokemonchosenfinal)
        url: host,
        data: {pokemonis: pokemonchosenfinal, heightis: parseInt(meterfinal), imageis:imagechosen2,dateis: 3 }
      ,
-       success: function(datasql){
-         console.log(datasql);
-         $(".sqlbar").html(datasql);
+       success: function(datat){
+         var datasql=JSON.parse(datat);
+       var table ='';
+       for(var i=0; i<datasql.length; i++){
+           table +='<tr> <td class="pokeclass">'+ datasql[i].pokemon +'</td> <td class="imageclass">'+ "<img class='imae'  src= '"+ datasql[i].imagelink+ "' alt='Photo of human'>" + '</td> <td class="heightclas">'+ datasql[i].height +  '</td><td>'+  "<button class='exclass'> ! </button>" + '</td></tr>';
+         }
+         table ='<table border="1"><tr> <th>Pokemon</th> <th>Image</th> <th>Height</th><th>Submit!</th> </tr>'+ table +'</table>';
+         console.log(table)
+         $(".sqlbar").html(table);
+         $(".exclass").click(function(){
+            pok=$(this).closest('tr').children('td.pokeclass').text();
+            ima=$(this).closest('tr').children('td').children(".imae").attr("src");
+            heig=$(this).closest('tr').children('td.heightclas').text();
+            Uone="https://pokeapi.co/api/v1/pokemon/" + pok
+              $.ajax({
+                type:"GET",
+                jsonp: "callback",
+                dataType: "jsonp",
+                url: Uone,
+                success: function(dataone){
+                heightpokemon=dataone.height
+                id=dataone.national_id
+                }})
+            .done(function(){
+            Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
+               $(".pokee").attr("src",Utwo)
+               $(".human").attr("src",ima)
+               x=heig/(heightpokemon/10);
+               if (x>1){
+                 adjustedratio=x*(-.01666667*x+1.01667)
+               }
+               else{
+                 adjustedratio=x*(1.32-.32*x)
+               }
+               if (adjustedratio>20 ){
+                 alert("You" + " are too much taller than" + pokemonchosenfinal + " for this browser to handle.")
+                 return true;
+               }
+            if (adjustedratio<.1 ){
+                 alert(pokemonchosenfinal + " is too tall compared to you for this browser to handle.")
+                 return true;
+               }
+               adjustment=Math.pow(adjustedratio,.5)
+               if (adjustment>2.5){
+                 $(".pokee").css("height",240/(adjustment*2))
+                 $(".pokee").css("width", 240/(adjustment*2))
+                 $(".human").css("height",225*(adjustment/2))
+                 $(".human").css("width",120*(adjustment/2))
+               }
+               else if (adjustment<.35) {
+                 $(".pokee").css("height",240/(adjustment/2))
+                 $(".pokee").css("width", 240/(adjustment/2))
+                 $(".human").css("height",225*(adjustment*2))
+                 $(".human").css("width",120*(adjustment*2))
+               }
+               else{
+                 $(".pokee").css("height",240/adjustment)
+                 $(".pokee").css("width", 240/adjustment)
+                 $(".human").css("height",225*adjustment)
+                 $(".human").css("width",120*adjustment)
+               }
+               if (adjustment>1){
+                 $(".explainpara").hide()
+                 $(".display").show()
+                 $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pokemonchosenfinal)
+               }
+               else{
+                 $(".explainpara").hide()
+                 $(".display").show()
+                 $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
+               }})
+         })
        }})
-
    })})
 
+
+
 $(".byDate").click(function(){
-  console.log("hi")
   $.ajax({
     type:"GET",
     url: host,
     data: {dateis: 4}
   ,
-    success: function(datasql){
-      console.log(datasql);
-      $(".sqlbar").html(datasql);
+    success: function(datat){
+      var datasql=JSON.parse(datat);
+    var table ='';
+    for(var i=0; i<datasql.length; i++){
+        table +='<tr><td class="pokeclass">'+ datasql[i].pokemon +'</td> <td>'+ "<img class='imae' src= '"+ datasql[i].imagelink+ "' alt='Photo of human'> </img>" + '</td><td class="heightclas">'+ datasql[i].height +  '</td><td>'+ "<button class='exclass'> ! </button>" + '</td></tr>';
+      }
+      table ='<table border="1"><tr> <th>Pokemon</th> <th>Image</th> <th>Height</th><th>Submit!</th> </tr>'+ table +'</table>';
+      console.log(table)
+      $(".sqlbar").html(table);
+      $(".exclass").click(function(){
+         pok=$(this).closest('tr').children('td.pokeclass').text();
+         ima=$(this).closest('tr').children('td').children(".imae").attr("src");
+         heig=$(this).closest('tr').children('td.heightclas').text();
+         console.log(pok,ima,heig)
+         Uone="https://pokeapi.co/api/v1/pokemon/" + pok
+           $.ajax({
+             type:"GET",
+             jsonp: "callback",
+             dataType: "jsonp",
+             url: Uone,
+             success: function(dataone){
+             heightpokemon=dataone.height
+             id=dataone.national_id
+             }})
+         .done(function(){
+         Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
+            $(".pokee").attr("src",Utwo)
+            $(".human").attr("src",ima)
+            x=heig/(heightpokemon/10);
+            if (x>1){
+              adjustedratio=x*(-.01666667*x+1.01667)
+            }
+            else{
+              adjustedratio=x*(1.32-.32*x)
+            }
+            if (adjustedratio>20 ){
+              alert("You" + " are too much taller than" + pokemonchosenfinal + " for this browser to handle.")
+              return true;
+            }
+         if (adjustedratio<.1 ){
+              alert(pokemonchosenfinal + " is too tall compared to you for this browser to handle.")
+              return true;
+            }
+            adjustment=Math.pow(adjustedratio,.5)
+            if (adjustment>2.5){
+              $(".pokee").css("height",240/(adjustment*2))
+              $(".pokee").css("width", 240/(adjustment*2))
+              $(".human").css("height",225*(adjustment/2))
+              $(".human").css("width",120*(adjustment/2))
+            }
+            else if (adjustment<.35) {
+              $(".pokee").css("height",240/(adjustment/2))
+              $(".pokee").css("width", 240/(adjustment/2))
+              $(".human").css("height",225*(adjustment*2))
+              $(".human").css("width",120*(adjustment*2))
+            }
+            else{
+              $(".pokee").css("height",240/adjustment)
+              $(".pokee").css("width", 240/adjustment)
+              $(".human").css("height",225*adjustment)
+              $(".human").css("width",120*adjustment)
+            }
+            if (adjustment>1){
+              $(".explainpara").hide()
+              $(".display").show()
+              $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pokemonchosenfinal)
+            }
+            else{
+              $(".explainpara").hide()
+              $(".display").show()
+              $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
+            }})
+      })
     }})
 })
+
+
+//
+// $(".sqlbar").click(function(){
+//   console.log('YO');
+// })
 
 $(".byPokemon").click(function(){
   $(".byPokemon").autocomplete({source: arr,
@@ -300,12 +445,80 @@ $(".byPokemon").click(function(){
       $.ajax({
         type:"GET",
         url: host,
-        data: {dateis: 5, pokemonis:ob.item.value}
+        data: {dateis: 5,pokemonis:ob.item.value}
       ,
-        success: function(datasql){
-          console.log("hey")
-          console.log(datasql);
-          $(".sqlbar").html(datasql);
+        success: function(datat){
+          var datasql=JSON.parse(datat);
+        var table ='';
+        for(var i=0; i<datasql.length; i++){
+            table +='<tr><td class="pokeclass">'+ datasql[i].pokemon +'</td><td>'+ "<img class='imae' src= '"+ datasql[i].imagelink+ "' alt='Photo of human'> </img>" + '</td><td class="heightclas">'+ datasql[i].height +  '</td><td>'+ "<button class='exclass'> ! </button>" + '</td></tr>';
+          }
+          table ='<table border="1"><tr> <th>Pokemon</th> <th>Image</th> <th>Height</th><th>Submit!</th> </tr>'+ table +'</table>';
+          $(".sqlbar").html(table);
+          $(".exclass").click(function(){
+             pok=$(this).closest('tr').children('td.pokeclass').text();
+             ima=$(this).closest('tr').children('td').children(".imae").attr("src");
+             heig=$(this).closest('tr').children('td.heightclas').text();
+             console.log(ima,heig,pok)
+             Uone="https://pokeapi.co/api/v1/pokemon/" + pok
+               $.ajax({
+                 type:"GET",
+                 jsonp: "callback",
+                 dataType: "jsonp",
+                 url: Uone,
+                 success: function(dataone){
+                 heightpokemon=dataone.height
+                 id=dataone.national_id
+                 }})
+             .done(function(){
+             Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
+                $(".pokee").attr("src",Utwo)
+                $(".human").attr("src",ima)
+                x=heig/(heightpokemon/10);
+                if (x>1){
+                  adjustedratio=x*(-.01666667*x+1.01667)
+                }
+                else{
+                  adjustedratio=x*(1.32-.32*x)
+                }
+                if (adjustedratio>20 ){
+                  alert("You" + " are too much taller than" + pokemonchosenfinal + " for this browser to handle.")
+                  return true;
+                }
+             if (adjustedratio<.1 ){
+                  alert(pokemonchosenfinal + " is too tall compared to you for this browser to handle.")
+                  return true;
+                }
+                adjustment=Math.pow(adjustedratio,.5)
+                if (adjustment>2.5){
+                  $(".pokee").css("height",240/(adjustment*2))
+                  $(".pokee").css("width", 240/(adjustment*2))
+                  $(".human").css("height",225*(adjustment/2))
+                  $(".human").css("width",120*(adjustment/2))
+                }
+                else if (adjustment<.35) {
+                  $(".pokee").css("height",240/(adjustment/2))
+                  $(".pokee").css("width", 240/(adjustment/2))
+                  $(".human").css("height",225*(adjustment*2))
+                  $(".human").css("width",120*(adjustment*2))
+                }
+                else{
+                  $(".pokee").css("height",240/adjustment)
+                  $(".pokee").css("width", 240/adjustment)
+                  $(".human").css("height",225*adjustment)
+                  $(".human").css("width",120*adjustment)
+                }
+                if (adjustment>1){
+                  $(".explainpara").hide()
+                  $(".display").show()
+                  $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pokemonchosenfinal)
+                }
+                else{
+                  $(".explainpara").hide()
+                  $(".display").show()
+                  $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
+                }})
+          })
         }})
     }})
 })
