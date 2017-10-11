@@ -85,14 +85,14 @@ if (datee==3){
     if (err) {
     console.log("date-3erro");
       throw err;
-    }})})
+    }})
     condatabase.connect(function(err){
   condatabase.query(sql1,function(err,result){
       res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
       console.log(result);
       res.write(JSON.stringify(result));
       res.end();
-    })})
+    })})})
   }
 
 else if(datee==4) {

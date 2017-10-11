@@ -48,7 +48,6 @@ $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
    $(function(){$("#menu-1").menu()})
 
   $(".KButton").click(function(){
-  //   $(".leftpic").effect("fade",1000)
     $(".image2border").removeClass()
     $(".leftpicpara").removeClass();
     $(".whatiscors").removeClass()
@@ -432,11 +431,6 @@ $(".byDate").click(function(){
     }})
 })
 
-
-//
-// $(".sqlbar").click(function(){
-//   console.log('YO');
-// })
 
 $(".byPokemon").click(function(){
   $(".byPokemon").autocomplete({source: arr,
