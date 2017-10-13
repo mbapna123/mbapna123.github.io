@@ -20,17 +20,17 @@ app.use(cors());
 // con.connect(function(err) {
 //   if (err) throw err;
 //   console.log("Connected!");
-//   con.query("CREATE DATABASE PokeL", function (err, result) {
+//   con.query("CREATE DATABASE heroku_88c51e6c2ac50c3", function (err, result) {
 //     if (err) throw err;
 //     console.log("Database created");
 //   });
 // })
 
 var condatabase=mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Dirtysouth1!",
-  database: "PokeL"
+  host: "us-cdbr-iron-east-05.cleardb.net",
+  user: "b3f6181b95101f",
+  password: "6079974d",
+  database: "heroku_88c51e6c2ac50c3"
 })
 //
 // condatabase.connect(function(err) {
@@ -47,7 +47,7 @@ var condatabase=mysql.createConnection({
 //   host: 'localhost',
 //   user: 'root',
 //   password: 'Dirtysouth1!',
-//   database: 'PokeL',
+//   database: 'heroku_88c51e6c2ac50c3',
 //   charset: 'utf8'
 // });
 
