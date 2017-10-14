@@ -52,7 +52,7 @@ var condatabase=mysql.createConnection({
 // });
 
 var reo ='<html><head><title></title></head><body><h1></h1>{${table}}</body></html>';
-let sql1 ='SELECT * FROM pokedata WHERE id>((SELECT max(id) FROM pokedata)-5)';
+let sql1 ='SELECT * FROM pokedata WHERE id>((SELECT max(id) FROM pokedata)-50)';
 
 // function setResHtml(sql){
 //     condatabase.query(sql, function(err,result,fields){
@@ -71,6 +71,8 @@ let sql1 ='SELECT * FROM pokedata WHERE id>((SELECT max(id) FROM pokedata)-5)';
 //     })};
 
 // WHERE id>(SELECT (max(id)-5) FROM TABLE)
+app.set('port', (process.env.PORT || 5000))
+
 app.get('/', function (req, res) {
   var q = url.parse(req.url, true).query;
   var datee=q.dateis;
@@ -119,8 +121,7 @@ condatabase.query(sql3,function(err,result){
 })
 
 
-var server = app.listen(8080, function () {
-   var host = server.address().address
-   var port = server.address().port
-   console.log("Example app listening at http://%s:%s", host, port)
+var server = app.listen(app.get('port'), function () {
+   var port = process.env.PORT
+   console.log("Example app listening at",app.get(port))
 })

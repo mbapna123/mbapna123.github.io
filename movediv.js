@@ -20,7 +20,7 @@ var valueerr=0;
 var valueerrtwo=0;
 var valueerrthree=0;
 var errork=1;
-var host="http://localhost:8080";
+var host="https://heroku-node-pokeapp.herokuapp.com/";
 var date;
 $(document).ready(function(){
 $("#menu-1").hide()
@@ -269,7 +269,7 @@ $(".pokee").attr("alt",pokemonchosenfinal)
      }
      $.ajax({
        type:"GET",
-       url: "https://heroku-node-pokeapp.herokuapp.com/",
+       url: host,
        data: {pokemonis: pokemonchosenfinal, heightis: parseInt(meterfinal), imageis:imagechosen2,dateis: 3 }
      ,
        success: function(datat){
@@ -352,7 +352,7 @@ $(".pokee").attr("alt",pokemonchosenfinal)
 $(".byDate").click(function(){
   $.ajax({
     type:"GET",
-    url: "https://heroku-node-pokeapp.herokuapp.com/",
+    url: host,
     data: {dateis: 4}
   ,
     success: function(datat){
@@ -438,11 +438,12 @@ $(".byPokemon").click(function(){
       console.log("hi")
       $.ajax({
         type:"GET",
-        url: "https://heroku-node-pokeapp.herokuapp.com/",
+        url: host,
         data: {dateis: 5,pokemonis:ob.item.value}
       ,
         success: function(datat){
           var datasql=JSON.parse(datat);
+          console.log(datasql)
         var table ='';
         for(var i=0; i<datasql.length; i++){
             table +='<tr><td class="pokeclass">'+ datasql[i].pokemon +'</td><td>'+ "<img class='imae' src= '"+ datasql[i].imagelink+ "' alt='Photo of human'> </img>" + '</td><td class="heightclas">'+ datasql[i].height +  '</td><td>'+ "<button class='exclass'> ! </button>" + '</td></tr>';
