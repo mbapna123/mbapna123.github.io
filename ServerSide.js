@@ -52,7 +52,7 @@ var condatabase=mysql.createConnection({
 // });
 
 var reo ='<html><head><title></title></head><body><h1></h1>{${table}}</body></html>';
-let sql1 ='SELECT * FROM pokedata WHERE id>((SELECT max(id) FROM pokedata)-50)';
+let sql1 ='SELECT * FROM pokedata WHERE id>((SELECT max(id) FROM pokedata)-5)';
 
 // function setResHtml(sql){
 //     condatabase.query(sql, function(err,result,fields){
@@ -82,23 +82,24 @@ if (datee==3){
    var pokemone=q.pokemonis;
    var heighte=parseInt(q.heightis);
   let sql2="INSERT INTO pokedata(pokemon,imagelink,height,upvote) VALUES ('"+ pokemone +"','"+ imagee +"','"+ heighte +"',0)";
-  condatabase.connect(function(err){
+  // condatabase.connect(function(err){
   condatabase.query(sql2,function(err,result){
     if (err) {
     console.log("date-3erro");
       throw err;
     }})
-    condatabase.connect(function(err){
+    // condatabase.connect(function(err){
   condatabase.query(sql1,function(err,result){
       res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
       console.log(result);
       res.write(JSON.stringify(result));
       res.end();
-    })})})
+    })
+  // })})
   }
 
 else if(datee==4) {
-  condatabase.connect(function(err){
+  // condatabase.connect(function(err){
 condatabase.query(sql1,function(err,result){
     res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
     console.log(result);
@@ -110,13 +111,13 @@ condatabase.query(sql1,function(err,result){
 else if(datee==5){
   var pokemone=q.pokemonis;
   let sql3="SELECT * FROM pokedata WHERE pokemon= '"+pokemone+"' order by id desc limit 5";
-condatabase.connect(function(err){
+// condatabase.connect(function(err){
 condatabase.query(sql3,function(err,result){
     res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
     console.log(result);
     res.write(JSON.stringify(result));
     res.end();
-  })})
+  })
 }
 })
 
