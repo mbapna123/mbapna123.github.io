@@ -270,7 +270,7 @@ $(".pokee").attr("alt",pokemonchosenfinal)
      $.ajax({
        type:"GET",
        url: host,
-       data: {pokemonis: pokemonchosenfinal, heightis: parseInt(meterfinal), imageis:imagechosen2,dateis: 3 }
+       data: {pokemonis: pokemonchosenfinal, heightis: parseFloat(meterfinal), imageis:imagechosen2,dateis: 3 }
      ,
        success: function(datat){
          var datasql=JSON.parse(datat);

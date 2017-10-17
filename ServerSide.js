@@ -25,37 +25,37 @@ app.use(cors());
 //     console.log("Database created");
 //   });
 // })
-var condatabase=mysql.createConnection({
+var condatabase={
   host: "us-cdbr-iron-east-05.cleardb.net",
   user: "b3f6181b95101f",
   password: "6079974d",
   database: "heroku_88c51e6c2ac50c3"
-})
+}
 
 var connection;
 
 function handleDisconnect() {
-  connection = mysql.createConnection(condatabase); // Recreate the connection, since
+  connection = mysql.createConnection(condatabase);
+} // Recreate the connection, since
                                                   // the old one cannot be reused.
-
-  connection.connect(function(err) {              // The server is either down
-    if(err) {                                     // or restarting (takes a while sometimes).
-      console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
-    }                                     // to avoid a hot loop, and to allow our node script to
-  });                                     // process asynchronous requests in the meantime.
-                                          // If you're also serving http, display a 503 error.
-  connection.on('error', function(err) {
-    console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-      handleDisconnect();                         // lost due to either server restart, or a
-    } else {                                      // connnection idle timeout (the wait_timeout
-      throw err;
-    }
-  });
-}
-
-handleDisconnect();
+//
+//   connection.connect(function(err) {              // The server is either down
+//     if(err) {                                     // or restarting (takes a while sometimes).
+//       console.log('error when connecting to db:', err);
+//       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+//     }                                     // to avoid a hot loop, and to allow our node script to
+//   });                                     // process asynchronous requests in the meantime.
+//                                           // If you're also serving http, display a 503 error.
+//   connection.on('error', function(err) {
+//     console.log('db error', err);
+//     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+//       handleDisconnect();                         // lost due to either server restart, or a
+//     } else {                                      // connnection idle timeout (the wait_timeout
+//       throw err;                                  // server variable configures this)
+//     }
+//   });
+// }
+// handleDisconnect();
 
 //
 // condatabase.connect(function(err) {
@@ -108,13 +108,14 @@ if (datee==3){
    var heighte=parseInt(q.heightis);
   let sql2="INSERT INTO pokedata(pokemon,imagelink,height,upvote) VALUES ('"+ pokemone +"','"+ imagee +"','"+ heighte +"',0)";
   // condatabase.connect(function(err){
-  condatabase.query(sql2,function(err,result){
+  connection.query(sql2,function(err,result){
     if (err) {
     console.log("date-3erro");
-      throw err;
-    }})
-    // condatabase.connect(function(err){
-  condatabase.query(sql1,function(err,result){
+    handleDisconnect();
+    }
+  })
+    // connection.connect(function(err){
+  connection.query(sql1,function(err,result){
       res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
       console.log(result);
       res.write(JSON.stringify(result));
@@ -124,8 +125,8 @@ if (datee==3){
   }
 
 else if(datee==4) {
-  // condatabase.connect(function(err){
-condatabase.query(sql1,function(err,result){
+  // connection.connect(function(err){
+connection.query(sql1,function(err,result){
     res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
     console.log(result);
     res.write(JSON.stringify(result));
@@ -136,8 +137,8 @@ condatabase.query(sql1,function(err,result){
 else if(datee==5){
   var pokemone=q.pokemonis;
   let sql3="SELECT * FROM pokedata WHERE pokemon= '"+pokemone+"' order by id desc limit 5";
-// condatabase.connect(function(err){
-condatabase.query(sql3,function(err,result){
+// connection.connect(function(err){
+connection.query(sql3,function(err,result){
     res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
     console.log(result);
     res.write(JSON.stringify(result));
