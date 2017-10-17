@@ -391,11 +391,11 @@ $(".byDate").click(function(){
               adjustedratio=x*(1.32-.32*x)
             }
             if (adjustedratio>20 ){
-              alert("You" + " are too much taller than" + pokemonchosenfinal + " for this browser to handle.")
+              alert("You" + " are too much taller than" + pok + " for this browser to handle.")
               return true;
             }
          if (adjustedratio<.1 ){
-              alert(pokemonchosenfinal + " is too tall compared to you for this browser to handle.")
+              alert(pok + " is too tall compared to you for this browser to handle.")
               return true;
             }
             adjustment=Math.pow(adjustedratio,.5)
@@ -420,12 +420,12 @@ $(".byDate").click(function(){
             if (adjustment>1){
               $(".explainpara").hide()
               $(".display").show()
-              $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pokemonchosenfinal)
+              $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pok)
             }
             else{
               $(".explainpara").hide()
               $(".display").show()
-              $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
+              $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pok)
             }})
       })
     }})
@@ -477,11 +477,11 @@ $(".byPokemon").click(function(){
                   adjustedratio=x*(1.32-.32*x)
                 }
                 if (adjustedratio>20 ){
-                  alert("You" + " are too much taller than" + pokemonchosenfinal + " for this browser to handle.")
+                  alert("You" + " are too much taller than" + pok + " for this browser to handle.")
                   return true;
                 }
              if (adjustedratio<.1 ){
-                  alert(pokemonchosenfinal + " is too tall compared to you for this browser to handle.")
+                  alert(pok + " is too tall compared to you for this browser to handle.")
                   return true;
                 }
                 adjustment=Math.pow(adjustedratio,.5)
@@ -506,12 +506,12 @@ $(".byPokemon").click(function(){
                 if (adjustment>1){
                   $(".explainpara").hide()
                   $(".display").show()
-                  $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pokemonchosenfinal)
+                  $(".display").text("You are " + x.toFixed(2) +" times taller"  + " than " +  pok)
                 }
                 else{
                   $(".explainpara").hide()
                   $(".display").show()
-                  $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
+                  $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pok)
                 }})
           })
         }})
