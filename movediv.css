@@ -8,6 +8,13 @@
   background-repeat: no-repeat;
 }
 
+.randyes{
+  background-color: teal;
+}
+
+.randno{
+  background-color: inherit;
+}
 .leftpic{
   position: absolute;
   right: 1200px;

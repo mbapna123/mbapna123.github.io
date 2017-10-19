@@ -22,6 +22,8 @@ var valueerrthree=0;
 var errork=1;
 var host="https://heroku-node-pokeapp.herokuapp.com/";
 var date;
+var rand=Math.floor(Math.random() * 1000000);
+console.log(rand)
 $(document).ready(function(){
 $("#menu-1").hide()
 $(".pokewindow").hide()
@@ -267,16 +269,28 @@ $(".pokee").attr("alt",pokemonchosenfinal)
        $(".display").show()
        $(".display").text("You are " + (1/x).toFixed(2) +" times shorter"  + " than " +  pokemonchosenfinal)
      }
+     console.log(rand)
      $.ajax({
        type:"GET",
        url: host,
-       data: {pokemonis: pokemonchosenfinal, heightis: parseFloat(meterfinal), imageis:imagechosen2,dateis: 3 }
+       data: {pokemonis: pokemonchosenfinal, heightis: parseFloat(meterfinal), imageis:imagechosen2,dateis: 3,randis: parseInt(rand) }
      ,
        success: function(datat){
          var datasql=JSON.parse(datat);
+         console.log(hehe);
        var table ='';
+       var row;
        for(var i=0; i<datasql.length; i++){
-           table +='<tr> <td class="pokeclass">'+ datasql[i].pokemon +'</td> <td class="imageclass">'+ "<img class='imae'  src= '"+ datasql[i].imagelink+ "' alt='Photo of human'>" + '</td> <td class="heightclas">'+ datasql[i].height +  '</td><td>'+  "<button class='exclass'> ! </button>" + '</td></tr>';
+         console.log(datasql[i].machID)
+         console.log(rand)
+         if (datasql[i].machID==rand){
+           console.log('hi');
+           row="randyes";
+         }
+         else{
+           row="randno";
+       }
+           table +='<tr class="'+row+'"> <td class="pokeclass">'+ datasql[i].pokemon +'</td> <td class="imageclass">'+ "<img class='imae'  src= '"+ datasql[i].imagelink+ "' alt='Photo of human'>" + '</td> <td class="heightclas">'+ datasql[i].height +  '</td><td>'+  "<button class='exclass'> ! </button>" + '</td></tr>';
          }
          table ='<table border="1"><tr> <th>Pokemon</th> <th>Image</th> <th>Height</th><th>Submit!</th> </tr>'+ table +'</table>';
          console.log(table)
@@ -359,7 +373,16 @@ $(".byDate").click(function(){
       var datasql=JSON.parse(datat);
     var table ='';
     for(var i=0; i<datasql.length; i++){
-        table +='<tr><td class="pokeclass">'+ datasql[i].pokemon +'</td> <td>'+ "<img class='imae' src= '"+ datasql[i].imagelink+ "' alt='Photo of human'> </img>" + '</td><td class="heightclas">'+ datasql[i].height +  '</td><td>'+ "<button class='exclass'> ! </button>" + '</td></tr>';
+      console.log(datasql[i].machID)
+      console.log(rand)
+      if (datasql[i].machID==rand){
+        console.log('hi');
+        row="randyes";
+      }
+      else{
+        row="randno";
+    }
+        table +='<tr class="'+row+'"> <td class="pokeclass">'+ datasql[i].pokemon +'</td> <td class="imageclass">'+ "<img class='imae'  src= '"+ datasql[i].imagelink+ "' alt='Photo of human'>" + '</td> <td class="heightclas">'+ datasql[i].height +  '</td><td>'+  "<button class='exclass'> ! </button>" + '</td></tr>';
       }
       table ='<table border="1"><tr> <th>Pokemon</th> <th>Image</th> <th>Height</th><th>Submit!</th> </tr>'+ table +'</table>';
       console.log(table)
@@ -444,9 +467,19 @@ $(".byPokemon").click(function(){
         success: function(datat){
           var datasql=JSON.parse(datat);
           console.log(datasql)
+          console.log(hehe);
         var table ='';
         for(var i=0; i<datasql.length; i++){
-            table +='<tr><td class="pokeclass">'+ datasql[i].pokemon +'</td><td>'+ "<img class='imae' src= '"+ datasql[i].imagelink+ "' alt='Photo of human'> </img>" + '</td><td class="heightclas">'+ datasql[i].height +  '</td><td>'+ "<button class='exclass'> ! </button>" + '</td></tr>';
+          console.log(datasql[i].machID)
+          console.log(rand)
+          if (datasql[i].machID==rand){
+            console.log('hi');
+            row="randyes";
+          }
+          else{
+            row="randno";
+        }
+            table +='<tr class="'+row+'"> <td class="pokeclass">'+ datasql[i].pokemon +'</td> <td class="imageclass">'+ "<img class='imae'  src= '"+ datasql[i].imagelink+ "' alt='Photo of human'>" + '</td> <td class="heightclas">'+ datasql[i].height +  '</td><td>'+  "<button class='exclass'> ! </button>" + '</td></tr>';
           }
           table ='<table border="1"><tr> <th>Pokemon</th> <th>Image</th> <th>Height</th><th>Submit!</th> </tr>'+ table +'</table>';
           $(".sqlbar").html(table);
@@ -462,8 +495,9 @@ $(".byPokemon").click(function(){
                  dataType: "jsonp",
                  url: Uone,
                  success: function(dataone){
-                 heightpokemon=dataone.height
-                 id=dataone.national_id
+                 heightpokemon=dataone.height;
+                 id=dataone.national_id;
+
                  }})
              .done(function(){
              Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
