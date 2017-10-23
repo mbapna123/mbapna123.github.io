@@ -21,6 +21,7 @@ var valueerrtwo=0;
 var valueerrthree=0;
 var errork=1;
 var host="https://heroku-node-pokeapp.herokuapp.com/";
+var localhost="http://localhost:8080/MadLib/MadLibServlet";
 var date;
 var rand=Math.floor(Math.random() * 1000000);
 console.log(rand)
@@ -29,6 +30,7 @@ $("#menu-1").hide()
 $(".pokewindow").hide()
 $(".display").hide()
 $(".errorpoke").hide()
+$(".madLibWindow").hide()
 
 $.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
       iterate=0;
@@ -210,15 +212,13 @@ $(".submitimage").click(function(){
   }
 pokemonchosenfinal=$(".pokemoninput").val();
 $(".pokee").attr("alt",pokemonchosenfinal)
-  Uone="https://pokeapi.co/api/v1/pokemon/" + pokemonchosenfinal
+  Uone="https://pokeapi.co/api/v2/pokemon/" + pokemonchosenfinal
     $.ajax({
       type:"GET",
-      jsonp: "callback",
-      dataType: "jsonp",
       url: Uone,
       success: function(dataone){
       heightpokemon=dataone.height
-      id=dataone.national_id
+      id=dataone.id
       }})
 .done(function(){
   Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
@@ -299,15 +299,13 @@ $(".pokee").attr("alt",pokemonchosenfinal)
             pok=$(this).closest('tr').children('td.pokeclass').text();
             ima=$(this).closest('tr').children('td').children(".imae").attr("src");
             heig=$(this).closest('tr').children('td.heightclas').text();
-            Uone="https://pokeapi.co/api/v1/pokemon/" + pok
+            Uone="https://pokeapi.co/api/v2/pokemon/" + pok
               $.ajax({
                 type:"GET",
-                jsonp: "callback",
-                dataType: "jsonp",
                 url: Uone,
                 success: function(dataone){
                 heightpokemon=dataone.height
-                id=dataone.national_id
+                id=dataone.id
                 }})
             .done(function(){
             Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
@@ -392,15 +390,13 @@ $(".byDate").click(function(){
          ima=$(this).closest('tr').children('td').children(".imae").attr("src");
          heig=$(this).closest('tr').children('td.heightclas').text();
          console.log(pok,ima,heig)
-         Uone="https://pokeapi.co/api/v1/pokemon/" + pok
+         Uone="https://pokeapi.co/api/v2/pokemon/" + pok
            $.ajax({
              type:"GET",
-             jsonp: "callback",
-             dataType: "jsonp",
              url: Uone,
              success: function(dataone){
              heightpokemon=dataone.height
-             id=dataone.national_id
+             id=dataone.id
              }})
          .done(function(){
          Utwo="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +id +".png"
@@ -488,15 +484,13 @@ $(".byPokemon").click(function(){
              ima=$(this).closest('tr').children('td').children(".imae").attr("src");
              heig=$(this).closest('tr').children('td.heightclas').text();
              console.log(ima,heig,pok)
-             Uone="https://pokeapi.co/api/v1/pokemon/" + pok
+             Uone="https://pokeapi.co/api/v2/pokemon/" + pok
                $.ajax({
                  type:"GET",
-                 jsonp: "callback",
-                 dataType: "jsonp",
                  url: Uone,
                  success: function(dataone){
                  heightpokemon=dataone.height;
-                 id=dataone.national_id;
+                 id=dataone.id;
 
                  }})
              .done(function(){
@@ -569,6 +563,36 @@ $(".byPokemon").click(function(){
     $(".imagearrowbox").hover(function(){
       $(".imagearrow").css("background-color","orange")},
         function(){$(".imagearrow").css("background-color" ,"#ADD8E6")})
+
+  $(".arr").hover(function(){
+    $(".arrbutton").css("background-color","orange")},
+    function(){$(".arrbutton").css("background-color" ,"#ADD8E6")})
+
+  $(".arr").click(function(){
+    // $(".pokewindow").removeClass("pokee");
+    //   $(".pokewindow").removeClass("human");
+    //     $(".pokewindow").removeClass("explainpara");
+    $(".human").css('display', 'none');
+    $(".pokewindow").find("*").removeClass();
+    $(".pokewindow").removeClass();
+    $(".madLibWindow").show();
+  })
+
+$(".submitclass").click(function(){
+  var textt=$(".madlibb").val().trim();
+  console.log(textt)
+  var textt2=textt.replace(/\s\s/g,"\s")
+  console.log(textt2);
+  var submittext=textt2.split(" ")
+  console.log(submittext)
+  $.ajax({
+    type:"GET",
+    url: localhost,
+    data: {madlibarray: text}
+  ,
+    success: function(datat){
+      console.log('hi')
+}})})
 
   $(".passionateheading").hover(function(){
     $(".passionateheading").css("background","linear-gradient(white,grey)")},
