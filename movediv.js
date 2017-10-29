@@ -21,9 +21,12 @@ var valueerrtwo=0;
 var valueerrthree=0;
 var errork=1;
 var host="https://heroku-node-pokeapp.herokuapp.com/";
-var localhost="http://localhost:8080/MadLib/MadLibServlet";
+var localhost="https://madlibfun.herokuapp.com/MadLibProject";
 var date;
-var rand=Math.floor(Math.random() * 1000000);
+var rand=Math.floor(Math.random() * 1000000000);
+var textsplit
+var inputarray=[]
+var numbres
 console.log(rand)
 $(document).ready(function(){
 $("#menu-1").hide()
@@ -31,8 +34,9 @@ $(".pokewindow").hide()
 $(".display").hide()
 $(".errorpoke").hide()
 $(".madLibWindow").hide()
-
-$.getJSON("https://pokeapi.co/api/v1/pokedex/1/",function(pokedata){
+$(".classsub").hide();
+$(".resultclass").hide();
+$.getJSON('https://pokeapi.co/api/v1/pokedex/1/',function(pokedata){
       iterate=0;
       arr=[];
     while(pokedata.pokemon[iterate].name!="null"){
@@ -569,9 +573,9 @@ $(".byPokemon").click(function(){
     function(){$(".arrbutton").css("background-color" ,"#ADD8E6")})
 
   $(".arr").click(function(){
-    // $(".pokewindow").removeClass("pokee");
-    //   $(".pokewindow").removeClass("human");
-    //     $(".pokewindow").removeClass("explainpara");
+    $(".pokewindow").removeClass("pokee");
+      $(".pokewindow").removeClass("human");
+        $(".pokewindow").removeClass("explainpara");
     $(".human").css('display', 'none');
     $(".pokewindow").find("*").removeClass();
     $(".pokewindow").removeClass();
@@ -581,19 +585,118 @@ $(".byPokemon").click(function(){
 $(".submitclass").click(function(){
   var textt=$(".madlibb").val().trim();
   console.log(textt)
-  var textt2=textt.replace(/\s\s/g,"\s")
+  var textt1=textt.replace(/\./g,'');
+  var textt2=textt1.replace(/\,/g,'');
+  var textt3=textt2.replace(/\s+/g,' ');
   console.log(textt2);
-  var submittext=textt2.split(" ")
-  console.log(submittext)
+   textsplit=textt3.split(" ");
+  console.log(textsplit)
   $.ajax({
     type:"GET",
     url: localhost,
-    data: {madlibarray: text}
+    data: {madlibarray: textt3}
   ,
     success: function(datat){
       console.log('hi')
+      console.log(datat)
+      var lol=datat.split("[");
+       numbrestwo=lol[1].slice(0, -1).split(",");
+      var charw=lol[2].slice(0, -1).split(",");
+      var tabletwo="";
+      var leng=charw.length;
+      // console.log(leng);
+      for (var u=0; u<leng; u++){
+        if (charw[u]==0||charw[u]=="conjuction"||charw[u]=="interjection"||charw[u]=="preposition"){
+          charw.splice(u, 1)
+          numbrestwo.splice(u,1)
+        }
+      }
+        var lengtwo=charw.length;
+numbres=numbrestwo
+for (var ll=0; ll<lengtwo; ll++){
+  numbres[ll]=numbrestwo[ll].trim().replace("]","")
+}
+console.log(numbres)
+var charw4=[]
+      for (var u3=0; u3<lengtwo; u3++){
+        charw4[u3]=charw[u3].trim().replace("]","")
+      }
+
+        console.log(charw4)
+        console.log(numbres)
+        console.log(leng)
+        console.log(lengtwo)
+        var charw3=[];
+    for (var u2=0; u2<lengtwo; u2++){
+        console.log(typeof(charw4[u2]));
+        if ((charw4[u2] !="verb") && (charw4[u2] !="adjective") && (charw4[u2] !="pronoun") && (charw4[u2] !="adverb") && (charw4[u2]!="conjuction") && (charw4[u2] !="interjection") && (charw4[u2] !="preposition")) {
+          console.log(charw4[u2])
+          charw3[u2]="noun"
+        }
+        else{
+            charw3[u2]= charw4[u2]
+        }
+      }
+      var leng3=charw3.length;
+      console.log(numbres);
+      console.log(charw3);
+      for (var itera=0; itera<leng3; itera++){
+          tabletwo +='<tr> <td>'+ charw3[itera] +'</td> <td>'+ "<input type='text' name='characters' value=''>" + '</td></tr>';
+      }
+      tabletwo ='<table id="tabletwoo" border="1"><tr> <th>Part of Speech</th> <th>Enter Information</th> </tr>'+ tabletwo +'</table>';
+      $("#madlibtable").html(tabletwo);
+      $(".madlibb").hide();
+      $(".submitclass").hide();
+      $(".classsub").show();
+      $("#madlibtable").show()
 }})})
 
+$(".classsub").click(function(){
+  console.log("hi")
+getarray();
+console.log(inputarray)
+console.log(numbres)
+var textsplittwo=textsplit
+console.log(textsplittwo)
+for (theiter=0;theiter<inputarray.length;theiter++){
+  textsplittwo[numbres[theiter]]=inputarray[theiter]
+}
+console.log(textsplittwo)
+var texte=""
+for (iteraa=0; iteraa<textsplittwo.length;iteraa++){
+
+  texte=texte+" "+ textsplittwo[iteraa]
+}
+$(".resultclass").show()
+$(".resultclass").text(texte)
+$(".classsub").hide()
+$("#madlibtable").hide()
+})
+
+$(".resetbutton").click(function(){
+$("#madlibtable").hide()
+$(".classsub").hide()
+$(".resultclass").hide()
+$(".madlibb").show()
+$(".submitclass").show()
+})
+
+$(".xbutton").click(function(){
+  $(".info").hide()
+  $('.xbutton').hide()
+})
+function getarray(){
+    var tabel = document.getElementById('tabletwoo');
+    var lengthtable = tabel.rows.length;
+    for (i = 0; i < lengthtable; i++){
+        var inputs = tabel.rows.item(i).getElementsByTagName("input");
+        var inputslengte = inputs.length;
+        for(var j = 0; j < inputslengte; j++){
+            var inputval = inputs[j].value;
+            inputarray[i-1]=inputval
+        }
+    }
+}
   $(".passionateheading").hover(function(){
     $(".passionateheading").css("background","linear-gradient(white,grey)")},
       function(){$(".passionateheading").css("background" ,"white"),
