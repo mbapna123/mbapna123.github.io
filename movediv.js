@@ -60,13 +60,22 @@ $.getJSON('https://pokeapi.co/api/v1/pokedex/1/',function(pokedata){
     $(".leftpicpara").removeClass();
     $(".whatiscors").removeClass()
     $(".corsans").removeClass()
+    $(".leftpic").find("*").css("display","none")
     $(".leftpic").removeClass()
+    $(".rightpic").find("*").css("display","none")
     $(".rightpic").find("*").removeClass()
+
     $(".rightpic").removeClass()
     $("#menu-1").show()
     $(".paraone").hide()
     $(".pokewindow").show()
     $(".infofirstsecond").hide()
+    $(".title").css("display","none")
+    $(".bodypost").css("display","none")
+      $(".quicklearnerhead").css("")
+      $(".passionateheading").hide()
+      $(".educationh").hide()
+      $(".educationhead").hide()
 $(".KButton").removeClass()
   })
 
@@ -550,7 +559,7 @@ $(".byPokemon").click(function(){
     }})
 })
   $(".passionateheading").click(function(){
-    $(".bodypost").html(" <br> <br>Starting in April this year, I have been on a mission to become a junior developer. At first, I learnt Core Java. Next, to master my skills in Core Java I studied for and attained an Oracle Java Certification which is designed for Java Developers working in the field! Then, I completed basic applications using tools in Java Web Development. Finally, I learnt HTML, CSS and JavaScript which are all on display right here! I do not see myself losing my zest for web development anytime soon!")
+    $(".bodypost").html(" <br> <br>Starting in April this year, I have been on a mission to become a junior developer. At first, I learnt Core Java. Next, to master my skills in Core Java I studied for and attained an Oracle Java Certification which is designed for Java Developers working in the field! Then, I completed a Mad-Lib Application using Java Servlets. Finally, I learnt HTML, CSS and JavaScript which are all on display right here! I do not see myself losing my zest for web development anytime soon!")
   })
   $(".quicklearnerhead").click(function(){
     $(".bodypost").html(" <br> Wikipedia and Khan Academy have transformed the educational landscape, allowing people, regardless of their backgrounds to learn virtually anything they want to.  Skype has allowed for loved one's to share joy with their spouses even if they live in the farthest corner of the Earth. Online companies such as WebMD and IsabelHealthCare have allowed people to diagnose themselves <span class=smallfont> (with caution) </span>, many times saving their lives.  Web applications have and WILL continue to change the world for the better. This is why I want to become a web developer.")
@@ -573,10 +582,18 @@ $(".byPokemon").click(function(){
     function(){$(".arrbutton").css("background-color" ,"#ADD8E6")})
 
   $(".arr").click(function(){
+    $(".title").hide()
+    $(".bodypost").hide()
+      $(".quicklearnerhead").hide()
+      $(".passionateheading").hide()
+      $(".educationh").hide()
+      $(".educationhead").hide()
     $(".pokewindow").removeClass("pokee");
       $(".pokewindow").removeClass("human");
         $(".pokewindow").removeClass("explainpara");
     $(".human").css('display', 'none');
+    $(".sqlbar").css("display","none")
+    $(".rightpicpara").hide()
     $(".pokewindow").find("*").removeClass();
     $(".pokewindow").removeClass();
     $(".madLibWindow").show();
