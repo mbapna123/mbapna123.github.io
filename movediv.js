@@ -27,6 +27,8 @@ var rand=Math.floor(Math.random() * 1000000000);
 var textsplit
 var inputarray=[]
 var numbres
+var arrperiods
+var textsplitone
 console.log(rand)
 $(document).ready(function(){
 $("#menu-1").hide()
@@ -606,8 +608,22 @@ $(".submitclass").click(function(){
   var textt2=textt1.replace(/\,/g,'');
   var textt3=textt2.replace(/\s+/g,' ');
   console.log(textt2);
-   textsplit=textt3.split(" ");
-  console.log(textsplit)
+  var txt4=textt.replace(/\,/g,'');
+  var txt5=txt4.replace(/\s+/g,' ');
+  textsplitone=txt5.split(" ");
+  console.log(textsplitone);
+  textsplit=textt3.split(" ");
+  arrperiods=[];
+  for (var za=0;za<textsplitone.length;za++){
+    var arrac=textsplitone[za]
+    if (arrac.substring(arrac.length-1) == "."){
+      arrperiods[za]=1;
+    }
+    else{
+      arrperiods[za]=0;
+    }
+  }
+  console.log(arrperiods)
   $.ajax({
     type:"GET",
     url: localhost,
@@ -679,11 +695,14 @@ for (theiter=0;theiter<inputarray.length;theiter++){
   textsplittwo[numbres[theiter]]=inputarray[theiter]
 }
 console.log(textsplittwo)
+console.log(arrperiods)
 var texte=""
 for (iteraa=0; iteraa<textsplittwo.length;iteraa++){
-
+if (arrperiods[iteraa]==0){
   texte=texte+" "+ textsplittwo[iteraa]
 }
+else
+{texte=texte+" "+ textsplittwo[iteraa]+"."}}
 $(".resultclass").show()
 $(".resultclass").text(texte)
 $(".classsub").hide()
