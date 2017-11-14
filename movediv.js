@@ -29,6 +29,7 @@ var inputarray=[]
 var numbres
 var arrperiods
 var textsplitone
+var arrs
 console.log(rand)
 $(document).ready(function(){
 $("#menu-1").hide()
@@ -653,6 +654,7 @@ for (var ll=0; ll<lengtwo; ll++){
 }
 console.log(numbres)
 var charw4=[]
+ arrs=[]
       for (var u3=0; u3<lengtwo; u3++){
         charw4[u3]=charw[u3].trim().replace("]","")
       }
@@ -667,9 +669,11 @@ var charw4=[]
         if ((charw4[u2] !="verb") && (charw4[u2] !="adjective") && (charw4[u2] !="pronoun") && (charw4[u2] !="adverb") && (charw4[u2]!="conjuction") && (charw4[u2] !="interjection") && (charw4[u2] !="preposition")) {
           console.log(charw4[u2])
           charw3[u2]="noun"
+          arrs[u2]=1
         }
         else{
             charw3[u2]= charw4[u2]
+            arrs[u2]=0
         }
       }
       var leng3=charw3.length;
@@ -694,8 +698,12 @@ console.log(numbres)
 var textsplittwo=textsplit
 console.log(textsplittwo)
 for (theiter=0;theiter<inputarray.length;theiter++){
-  textsplittwo[numbres[theiter]]=inputarray[theiter]
+  if(arrs[theiter]==1&&textsplitone[numbres[theiter]].substr(-1)=="s"){
+  textsplittwo[numbres[theiter]]=inputarray[theiter]+"s"
 }
+else {
+    textsplittwo[numbres[theiter]]=inputarray[theiter]
+}}
 console.log(textsplittwo)
 console.log(arrperiods)
 var texte=""
