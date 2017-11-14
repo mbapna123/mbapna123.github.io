@@ -606,10 +606,12 @@ $(".submitclass").click(function(){
   console.log(textt)
   var textt1=textt.replace(/\./g,'');
   var textt2=textt1.replace(/\,/g,'');
-  var textt3=textt2.replace(/\s+/g,' ');
+  var t4=textt2.replace(/\!/g,'');
+  var textt3=t4.replace(/\s+/g,' ');
   console.log(textt2);
   var txt4=textt.replace(/\,/g,'');
-  var txt5=txt4.replace(/\s+/g,' ');
+  var txt6=txt4.replace(/\!/g,'');
+  var txt5=txt6.replace(/\s+/g,' ');
   textsplitone=txt5.split(" ");
   console.log(textsplitone);
   textsplit=textt3.split(" ");
