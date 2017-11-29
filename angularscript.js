@@ -1,6 +1,6 @@
 var app = angular.module('pokeapp', []);
 var kobe=false;
-
+var ladfa=1;
 app.controller('controller', function($scope) {
       $scope.image="https://2.bp.blogspot.com/-cIfnFtBMTXo/VKzymP76l9I/AAAAAAAAAJk/_vHlnkMMsIM/s1600/durant.jpg";
   $scope.imagevalid = function() {
