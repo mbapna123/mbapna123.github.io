@@ -19,13 +19,13 @@
     <img class="pokee" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/289.png" alt="slaking">
     <form id="myForm" ng-app="pokeapp" ng-controller="controller" action="http://localhost:8080" method="get">
     <img class="human" src="kevindurant.jpg" alt="Human Image">
-    <input name="image" class="imageinput" name="image" ng-model="image" required my-directive>
-    <span class="errorimage" ng-show="myForm.image.$invalid">Valid Image File required.</span>
-    <input type="number" class="heightone" name="user"  ng-model="user" required>
+    <input name="image" class="imageinput" ng-model="image" required my-directive>
+    <span class="errorimage">{{imagevalid()}}</span>
+    <input type="number" class="heightone" name="user" value="2">
     <span style="color:red" ng-show="myForm.user.$invalid">
     </span>
     <span class="meterheight"> meters </span>
-    <input class="pokemoninput" name="pokemon" ng-model="pokemon" required>
+    <input class="pokemoninput" value="slaking" name="pokemon">
   <span class="errorpoke"> Input a valid Pokemon </span>
     <div class="pokemenubar">
       <div class="pokemenu">
