@@ -156,6 +156,7 @@ position: absolute;
   height: 620px;
   width: 350px;
   outline: 1px solid purple;
+  font-size: 14px;
 }
 
 .xbutton{
